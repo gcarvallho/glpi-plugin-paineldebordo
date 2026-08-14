@@ -60,20 +60,28 @@ Quem está usando o painel agora (com foto), trilha de ações sensíveis (mudan
 
 O menu aparece no topo do GLPI como **Inovare Hub**.
 
-### Vindo do plugin `dashboard` (versão anterior)
+### Vindo do ST-Dashboard (plugin anterior)
 
-O Painel de Bordo é a evolução do antigo plugin `dashboard`, e **os dois não convivem**. Ao instalar, ele *migra* o que existia: renomeia as tabelas `glpi_plugin_dashboard_{count,map,config}` para o novo prefixo e converte o direito `plugin_dashboard` em `plugin_paineldebordo`. Isso preserva o mapa de localidades, as configurações e as permissões já concedidas — mas deixa o plugin antigo sem dados e sem direito, ou seja, inutilizado.
+O Painel de Bordo é a evolução do plugin **ST-Dashboard** (pasta `dashboard`), e **os dois não convivem**. Ao instalar, ele *migra* o que existia: renomeia as tabelas `glpi_plugin_dashboard_{count,map,config}` para o novo prefixo e converte o direito `plugin_dashboard` em `plugin_paineldebordo`. Isso preserva o mapa de localidades, as configurações e as permissões já concedidas — mas deixa o plugin antigo sem dados e sem direito, ou seja, inutilizado.
 
-A ordem importa. Siga exatamente assim:
+> ### ⚠️ Nunca use "Desinstalar" no ST-Dashboard
+>
+> A desinstalação dele executa `DROP TABLE` nas três tabelas, **sem `IF EXISTS`**. Isso dá problema nos dois momentos possíveis:
+>
+> - **Antes** de instalar o Painel de Bordo → apaga justamente os dados que seriam migrados (mapa e configurações se perdem para sempre).
+> - **Depois** de instalar → as tabelas já foram renomeadas, o `DROP` falha e o GLPI 11 lança exceção, interrompendo a desinstalação com erro.
+>
+> O caminho correto é **desativar** e depois apagar a pasta do servidor — nunca desinstalar.
+
+Ordem recomendada:
 
 1. **Faça backup do banco.** A migração não tem volta automática.
-2. No GLPI, apenas **desative** o plugin antigo (**Configurar → Plugins → Desativar**).
-   > ⚠️ **Não clique em Desinstalar.** Desinstalar remove as tabelas `glpi_plugin_dashboard_*` — que são exatamente os dados que seriam migrados. Feito isso, mapa e configurações se perdem.
-3. Instale e ative o Painel de Bordo (passos 1 a 3 acima). A migração roda sozinha; o resultado fica registrado no log de instalação.
-4. Confira que o mapa e as configurações vieram junto.
-5. Só então remova a pasta do plugin antigo do servidor.
+2. Em **Configurar → Plugins**, clique em **Desativar** no ST-Dashboard (e só isso).
+3. Instale e ative o Painel de Bordo (passos 1 a 3 acima). A migração roda sozinha e o resultado fica registrado no log de instalação.
+4. Confira que o mapa e as configurações vieram junto, e que os perfis continuam com acesso.
+5. Só então remova a pasta `dashboard` do servidor.
 
-Instalando num GLPI que nunca teve o plugin `dashboard`, nada disso se aplica — o instalador apenas registra "nenhuma tabela legada para renomear" e segue.
+Instalando num GLPI que nunca teve o ST-Dashboard, nada disso se aplica — o instalador apenas registra "nenhuma tabela legada para renomear" e segue.
 
 ## Permissões
 
