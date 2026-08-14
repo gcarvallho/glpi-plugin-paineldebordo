@@ -60,6 +60,21 @@ Quem está usando o painel agora (com foto), trilha de ações sensíveis (mudan
 
 O menu aparece no topo do GLPI como **Inovare Hub**.
 
+### Vindo do plugin `dashboard` (versão anterior)
+
+O Painel de Bordo é a evolução do antigo plugin `dashboard`, e **os dois não convivem**. Ao instalar, ele *migra* o que existia: renomeia as tabelas `glpi_plugin_dashboard_{count,map,config}` para o novo prefixo e converte o direito `plugin_dashboard` em `plugin_paineldebordo`. Isso preserva o mapa de localidades, as configurações e as permissões já concedidas — mas deixa o plugin antigo sem dados e sem direito, ou seja, inutilizado.
+
+A ordem importa. Siga exatamente assim:
+
+1. **Faça backup do banco.** A migração não tem volta automática.
+2. No GLPI, apenas **desative** o plugin antigo (**Configurar → Plugins → Desativar**).
+   > ⚠️ **Não clique em Desinstalar.** Desinstalar remove as tabelas `glpi_plugin_dashboard_*` — que são exatamente os dados que seriam migrados. Feito isso, mapa e configurações se perdem.
+3. Instale e ative o Painel de Bordo (passos 1 a 3 acima). A migração roda sozinha; o resultado fica registrado no log de instalação.
+4. Confira que o mapa e as configurações vieram junto.
+5. Só então remova a pasta do plugin antigo do servidor.
+
+Instalando num GLPI que nunca teve o plugin `dashboard`, nada disso se aplica — o instalador apenas registra "nenhuma tabela legada para renomear" e segue.
+
 ## Permissões
 
 O plugin usa direitos próprios do GLPI, por módulo:
