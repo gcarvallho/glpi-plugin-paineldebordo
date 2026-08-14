@@ -174,7 +174,13 @@ powershell -ExecutionPolicy Bypass -File tests/build_mo.ps1
 
 ### Empacotamento
 
-O `.zip` de distribuição deve conter a pasta `paineldebordo/` na raiz, **com caminhos usando barras normais** (`/`) — as ferramentas nativas do Windows gravam `\` e quebram a extração no Linux. Não inclua `_legacy_ref/`, `.git/` nem `Thumbs.db`.
+Use o script — ele lê a versão do `setup.php`, aplica as exclusões corretas e **valida o resultado**:
+
+```bash
+powershell -ExecutionPolicy Bypass -File tools\package.ps1
+```
+
+O `.zip` precisa ter a pasta `paineldebordo/` na raiz e **caminhos com barras normais** (`/`): as ferramentas nativas do Windows gravam `\`, o arquivo abre sem erro no Windows e depois **falha ao extrair no Linux**, que é onde o GLPI roda. Ficam de fora `_legacy_ref/`, `docs/img/` (as capturas deste README), `.git/` e `Thumbs.db`. O script aborta se qualquer uma dessas regras for violada.
 
 ---
 

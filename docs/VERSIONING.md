@@ -45,19 +45,25 @@ Quebra install/perfil/pasta de forma incompatível?
 4. Alinhar `docs/DESIGN.md` / `docs/TESTING.md` / este arquivo se a política ou UX mudou
 5. `php tests/run_all.php` → ALL SUITES PASSED
 6. `tests/run_smoke.ps1` → 0 failed (assert README = versão)
-7. Empacotar zip **sem** `_legacy_ref`:
+7. Empacotar com o script (lê a versão do `setup.php`, aplica as exclusões e **verifica** o zip):
 
 ```powershell
-# Exemplo
-robocopy paineldebordo _stage\paineldebordo /E /XD _legacy_ref
-# Zip da pasta _stage\paineldebordo → paineldebordo-X.Y.Z.zip
+powershell -ExecutionPolicy Bypass -File tools\package.ps1
 ```
 
 8. Nome do artefato: `paineldebordo-X.Y.Z.zip` com raiz interna `paineldebordo/`
 
 ## O que entra no zip
 - Código do plugin, `locales/`, `public/`, `inc/`, `docs/`, `tests/`, README, changelog
-- **Excluir:** `_legacy_ref/` (referência de desenvolvimento)
+- **Excluir:** `_legacy_ref/` (referência de desenvolvimento), `docs/img/` (capturas do README — só interessam no GitHub), `.git/`, `.claude/`, `Thumbs.db`
+
+### Por que usar o script e não zipar na mão
+Duas armadilhas já quebraram release aqui:
+
+1. **Separador de caminho.** `Compress-Archive` e `ZipFile::CreateFromDirectory` gravam `\` nas entradas quando rodam no Windows; o zip abre normalmente no Windows e **falha ao extrair no Linux**, que é onde o GLPI roda. O script cria cada entrada manualmente convertendo para `/`.
+2. **Exclusões esquecidas.** `_legacy_ref/` sozinho são ~17 MB de código de museu.
+
+O script aborta com erro se detectar barra invertida, arquivo proibido ou ausência de `paineldebordo/setup.php` na raiz — então um pacote inválido não chega a ser publicado.
 
 ## Regra Cursor / time
 - Política espelhada em `.cursor/rules/paineldebordo-golden.mdc` (`alwaysApply`).

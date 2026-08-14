@@ -293,6 +293,14 @@ $hookLegacy = Get-Content "$root\hook.php" -Raw
 Assert-True ($hookLegacy -match "directory = 'dashboard'") "install detects legacy ST-Dashboard"
 Assert-True ($hookLegacy -match "ST-Dashboard detected") "install warns about ST-Dashboard uninstall"
 Assert-True ((Get-Content "$root\locales\pt_BR.po" -Raw) -match "ST-Dashboard detectado") "ST-Dashboard warning translated"
+# Packaging script: keeps the release reproducible (forward slashes + exclusions)
+Assert-True (Test-Path "$root\tools\package.ps1") "packaging script exists"
+$pkgSrc = Get-Content "$root\tools\package.ps1" -Raw
+Assert-True ($pkgSrc.Contains("-replace '\\', '/'")) "packaging forces forward slashes"
+Assert-True ($pkgSrc.Contains("docs\img")) "packaging excludes README screenshots"
+Assert-True ($pkgSrc.Contains("_legacy_ref")) "packaging excludes legacy_ref"
+# PS 5.1 reads scripts as ANSI: non-ASCII breaks the parser
+Assert-True (($pkgSrc.ToCharArray() | Where-Object { [int]$_ -gt 127 }).Count -eq 0) "packaging script is pure ASCII"
 Assert-True ((Get-Content "$root\inc\config_post.inc.php" -Raw) -match "touched") "config change names changed fields"
 $logsView = Get-Content "$root\public\views\logs_hub.php" -Raw
 Assert-True ($logsView -match "flt_user") "logs page filters by user"
