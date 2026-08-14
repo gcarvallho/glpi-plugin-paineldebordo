@@ -1,0 +1,867 @@
+Versão 2.34.0:
+
+- Auditoria: registra tentativa de acesso negado (quem tentou abrir Configuração/Logs ou um módulo sem permissão), destacada em vermelho na lista
+- Auditoria: mudança de configuração agora grava o que mudou (campos alterados com valor antes -> depois), em vez de só a seção
+- Auditoria: exportar o log em CSV e PDF respeitando os filtros da tela; a própria exportação é registrada
+- Auditoria: tabela com paginação (100 por página), filtro por usuário e colunas novas de dispositivo (navegador/SO) e entidade
+- Auditoria: purga por cron do GLPI (Configurar > Ações automáticas) além da purga em tempo de uso, para a retenção valer mesmo com o painel parado; presenças antigas também são limpas
+
+Version 2.34.0:
+
+- Audit: records denied access attempts (who tried to open Configuration/Logs or a module without permission), highlighted in red in the list
+- Audit: configuration changes now record what changed (field-level before -> after) instead of just the section
+- Audit: export the log as CSV or PDF honoring the on-screen filters; the export itself is recorded
+- Audit: table now has pagination (100 per page), a user filter, and new Device (browser/OS) and Entity columns
+- Audit: retention purge now also runs as a GLPI cron task (Setup > Automatic actions) on top of the inline purge, so retention holds on an idle instance; stale presence rows are cleaned too
+
+Versão 2.33.1:
+
+- Correção definitiva dos warnings de includes.php no log: o guard de bootstrap do GLPI 11 agora cobre todos os 32 pontos de entrada (shell.php, todos os ajax/, tickets, metrics, reports); na 2.32.16 só os arquivos do Modo TV tinham o guard
+- Logs: tabelas passam a usar TIMESTAMP em vez de DATETIME (desencorajado pelo GLPI 11); quem instalou a 2.33.0 é migrado automaticamente na atualização
+- Logs: "Logins do GLPI" mostrava #0 sem foto porque o GLPI não grava o id do usuário nesses eventos; agora resolve o usuário pelo login contido na mensagem (com avatar) e mostra "—" quando não é possível resolver
+- Retenção de logs: padrão passa a ser 30 dias (antes era herdar do GLPI)
+- Design system: botão só-ícone agora exige tooltip (regra de ouro); menu Exportar dos gráficos ficou só ícone + tooltip
+
+Version 2.33.1:
+
+- Definitive fix for the includes.php warnings in the log: the GLPI 11 bootstrap guard now covers all 32 entry points (shell.php, every ajax/, tickets, metrics, reports); 2.32.16 only guarded the TV Mode files
+- Logs: tables now use TIMESTAMP instead of DATETIME (discouraged by GLPI 11); installs coming from 2.33.0 are migrated automatically
+- Logs: "GLPI logins" showed #0 with no photo because GLPI doesn't store the user id on those events; the user is now resolved from the login inside the message (with avatar), and unresolvable rows show "—"
+- Log retention: default is now 30 days (was "inherit GLPI")
+- Design system: icon-only buttons now require a tooltip (golden rule); the charts Export menu is now icon-only with a tooltip
+
+Versão 2.33.0:
+
+- Logs e auditoria (novo, menu Admin, só Super-Admin): quem está usando o Painel de Bordo (ativos agora, com foto), trilha de ações sensíveis (abrir painel, alterar config, exportar relatório/gráfico, parear/revogar TV) e histórico de logins do GLPI, tudo com avatar. Retenção herda a política do GLPI por padrão, com override opcional em dias (purga automática)
+- Correção: exportar gráfico como JPG saía com fundo preto; agora sai com fundo branco (exportação força fundo opaco e cores claras, independente do tema)
+
+Version 2.33.0:
+
+- Logs & audit (new, Admin menu, Super-Admin only): who is using Painel de Bordo (active now, with photo), a trail of sensitive actions (open dashboard, change config, export report/chart, pair/revoke TV) and GLPI login history, all with user avatars. Retention inherits GLPI's policy by default, with an optional day override (auto-purge)
+- Fix: exporting a chart as JPG produced a black background; it now exports with a white background (export forces an opaque background and light colors regardless of theme)
+
+Versão 2.32.16:
+
+- Correção definitiva do Modo TV em produção: tv_board.php/tv_events.php (e demais endpoints públicos) não geram mais o warning include(/var/inc/includes.php) no log. No GLPI 11 o núcleo já está carregado antes do arquivo rodar, então o bootstrap clássico é pulado em vez de calcular o caminho por dirname, que falhava em instalações Docker/volume onde __DIR__ fica fora da árvore do GLPI
+
+Version 2.32.16:
+
+- Definitive fix for TV Mode in production: tv_board.php/tv_events.php (and the other public endpoints) no longer emit the include(/var/inc/includes.php) warning. Under GLPI 11 core is already loaded before the file runs, so the classic bootstrap is skipped instead of computing the path via dirname, which failed on Docker/volume installs where __DIR__ resolves outside the GLPI tree
+
+Versão 2.32.15:
+
+- Tooltip de prioridade não repete mais o valor; tooltips do menu principal removidos onde o rótulo já está visível; auditoria de title= nativo residual em todo o plugin
+- Exportar PDF (relatórios): botão com aparência real de botão; mostra quem gerou e quando; abre em nova aba pra pré-visualizar antes de baixar
+- Gráficos: botões JPG/PDF agrupados num menu Exportar; PDF também pré-visualiza antes de baixar; corrige título ausente e fonte incorreta na exportação
+
+Version 2.32.15:
+
+- Priority tooltip no longer repeats the value; main nav tooltips removed where the label is already visible; audited remaining native title= across the plugin
+- Report PDF export: button now looks like an actual button; shows who generated it and when; opens in a new tab to preview before downloading
+- Charts: JPG/PDF buttons grouped into an Export menu; PDF also previews before downloading; fixes missing title and wrong font on export
+
+Versão 2.32.14:
+
+- Tooltip (ho-tip): corrige balão sendo cortado pela borda das colunas do Modo TV; agora posicionado em JS (position: fixed, via getBoundingClientRect()), sempre acima de tudo, em todo o plugin
+- Relatórios: novo botão Exportar PDF ao lado do CSV; cabeçalho com marca, período e data de geração, tabela com bordas, rodapé paginado; reaproveita o TCPDF do próprio GLPI, sem biblioteca nova vendorizada
+
+Version 2.32.14:
+
+- Tooltip (ho-tip): fixes the bubble being clipped by the TV board columns' edge; now positioned in JS (position: fixed, via getBoundingClientRect()), always renders above everything, plugin-wide
+- Reports: new Export PDF button next to CSV; branded header with period and generation date, bordered table, paginated footer; reuses GLPI's own TCPDF, no new vendored library
+
+Versão 2.32.13:
+
+- TV: prévia da descrição preserva títulos de seção (negrito) e quebras de linha em vez de virar texto corrido, importante pra descrições de formulário (pergunta/resposta)
+
+Version 2.32.13:
+
+- TV: description preview now preserves section headings (bold) and line breaks instead of collapsing into a run-on wall of text, important for form-builder descriptions (question/answer)
+
+Versão 2.32.12:
+
+- TV: corrige tamanho do ícone da categoria no card, que renderizava maior que os demais ícones da linha de datas mesmo com a fonte igual
+
+Version 2.32.12:
+
+- TV: fixes the category icon size on the card, which rendered larger than the other icons on the dates row despite matching font size
+
+Versão 2.32.11:
+
+- TV: corrige barra de rolagem horizontal indevida nas colunas; ícone no link "+N mais"; coluna extra Observador no quadro (Exibição → Visões extras); categoria movida pra linha própria abaixo do título
+- Prévia: mostra a descrição completa sem corte, com quebras de linha preservadas; modal um pouco maior com rolagem
+- Tooltips: corrige balão cortado (id, prioridade, técnico, solicitante, grupo, observadores, categoria, título) causado pelo próprio truncamento de texto do elemento
+
+Version 2.32.11:
+
+- TV: fixes unwanted horizontal scrollbar on columns; icon added to the "+N more" link; new Observer extra-view column on the board (Display → Extra views); category moved to its own line below the title
+- Preview: shows the full description with no cut, line breaks preserved; slightly bigger modal with scroll
+- Tooltips: fixes clipped bubble (id, priority, technician, requester, group, observers, category, title) caused by the element's own text truncation
+
+Versão 2.32.10:
+
+- Correção: tv_board.php/tv_events.php/tv_unpair.php/tv.php paravam de carregar em produção (rota sem sessão do GLPI 11 não ajustava o diretório antes do include)
+- Chamados: nova visão Observador (onde eu — ou meu grupo — sou observador)
+- TV: card com categoria do chamado junto das datas; botão Prévia (modal com a descrição); "+N mais" vira link pra lista filtrada, inclusive Validação/Aprovação
+- Tooltips estilizados (ho-tip) em todo o plugin, com rótulo + valor em vez do balão nativo repetindo o texto
+
+Version 2.32.10:
+
+- Fix: tv_board.php/tv_events.php/tv_unpair.php/tv.php stopped loading in production (GLPI 11's session-less route never set the working directory before include)
+- Tickets: new Observer view (tickets where I — or my group — am an observer)
+- TV: card shows ticket category next to the dates; new Preview button (modal with the description); "+N more" turns into a link to the filtered list, including Validation/Approval
+- Styled tooltips (ho-tip) across the whole plugin, label + value instead of the native browser bubble repeating the text
+
+Versão 2.32.9:
+
+- Relatórios e Gráficos: grade de tiles trocada por lista compacta ícone + nome completo (sem cortar); os 48 relatórios que caíam no ícone genérico agora têm ícone real; ícones de técnico/solicitante unificados com o Modo TV
+
+Version 2.32.9:
+
+- Reports and Charts: tile grid replaced with a compact icon + full-name list (no more truncation); the 48 reports that fell back to the generic icon now have a real one; technician/requester icons unified with Modo TV
+
+Versão 2.32.8:
+
+- TV: card com técnico e solicitante em selos irmãos de mesmo peso lado a lado; grupo volta a linha simples; ícone headset pro técnico, pessoa pro solicitante, olho pros observadores; ícones unificados entre o card e a lista de campos das preferências
+- Configuração → Personalização: cores próprias pro modo escuro (primária/fundo/superfície/texto)
+- Pareamento de TV: reabrir no mesmo aparelho reaproveita o código pendente em vez de duplicar; pendentes expirados somem sozinhos da lista
+
+Version 2.32.8:
+
+- TV: card shows technician and requester as sibling badges of equal weight side by side; group back to a plain line; headset icon for technician, person for requester, eye for observers; icons unified between the card and the preferences field checklist
+- Configuration → Personalization: dedicated dark-mode colors (primary/background/surface/text)
+- TV pairing: reopening on the same device reuses the pending code instead of duplicating it; expired pending entries auto-purge from the list
+
+Versão 2.32.7:
+
+- TV: card reorganizado — selo único de grupo+técnico (posse do chamado) em destaque; solicitante vira linha simples abaixo do selo; rodapé com cor por nível de prioridade (Muito baixa a Major)
+
+Version 2.32.7:
+
+- TV: card reorganized — combined group+tech badge (ticket ownership) now the highlight; requester moved to a plain line below the badge; footer priority text colored by level (Very low to Major)
+
+Versão 2.32.6:
+
+- AJAX: overview/bi/assets voltam a responder JSON "forbidden" (não HTML) quando falta o direito base do plugin
+- Ícone + rótulo: KPIs de listas de chamados, botões do hub de Configuração, exportar JPG/PDF, paginação de Ativos, modais BI/Config
+- i18n: completa pt_BR.po (arquivo/URL, logos, ajuda de escopo/upload, "Período", instalação, Visão geral)
+- Hardening: move para _legacy_ref/ arquivos órfãos com Bootstrap 2/Font Awesome/jQuery local/shim IE não roteados
+
+Version 2.32.6:
+
+- AJAX: overview/bi/assets endpoints return JSON "forbidden" again (not an HTML page) when the base plugin right is missing
+- Icon + label: ticket list KPIs, Configuration hub buttons, JPG/PDF export, Assets pagination, BI/Config modals
+- i18n: completed pt_BR.po (file/URL, logos, scope/upload hints, "Period", install, Overview)
+- Hardening: moved unrouted orphan files using Bootstrap 2/Font Awesome/local jQuery/IE shim into _legacy_ref/
+
+Versão 2.32.5:
+
+- TV: ícones grupo/técnico/observador no card; escala comfortable com poucas colunas; obs não some no denso; toasts no inferior direito
+
+Version 2.32.5:
+
+- TV: group/tech/observer icons on cards; comfortable scale with few columns; observers stay in dense mode; toasts bottom-right
+
+Versão 2.32.4:
+
+- Listas de chamados: Status Todos inclui Solucionado/Fechado (5/6); KPI Abertos permanece só abertos
+
+Version 2.32.4:
+
+- Ticket lists: Status All includes Solved/Closed (5/6); Open KPI stays open-only
+
+Versão 2.32.3:
+
+- TV: KPIs com ícone + rótulos curtos; coluna/KPI “Aprovado”; idade e observadores com ícone; cards densos com muitas colunas
+
+Version 2.32.3:
+
+- TV: KPIs with icon + short labels; column/KPI “Approved”; age/observers icons; dense cards when many columns
+
+Versão 2.32.2:
+
+- TV: coluna status 2 “Em atendimento” (sem “(atribuído)”); títulos de coluna em 1 linha (altura uniforme)
+
+Version 2.32.2:
+
+- TV: status-2 column “In progress” / PT “Em atendimento”; single-line column titles (uniform header height)
+
+Versão 2.32.1:
+
+- Fix: Desabilitar em Config → Plugins não trava mais (migrate ACL / createFirstAccess saíram do plugin_init; sync só sessão)
+
+Version 2.32.1:
+
+- Fix: Disable on Config → Plugins no longer hangs (ACL migrate / createFirstAccess removed from plugin_init; session sync only)
+
+Versão 2.32.0:
+
+- ACL: direito explícito “Visão ampla de grupos”; master UPDATE deixa de liberar todos os grupos (breaking intencional)
+- Aba Perfis: labels/ajuda honestos; Acesso ao Painel só Leitura
+- Entidade: select travado se o usuário só tem 1 entidade
+- TV: Visão do mural (filtra todas as colunas) + Visões extras mantidas
+- Docs: PERMISSIONS / QA / ARCHITECTURE / DESIGN / TESTING alinhados
+
+Version 2.32.0:
+
+- ACL: explicit “Wide group vision” right; master UPDATE no longer grants all groups (intentional breaking)
+- Profiles tab: honest labels/help; Panel access is Read-only
+- Entity: locked select when user has only one entity
+- TV: Board view (filters all status columns) + Extra views kept
+- Docs aligned
+
+Versão 2.31.0:
+
+- TV: “Solução aprovada” (ITILSolution ACCEPTED=3); KPIs hoje/semana/mês contam tickets criados no período (inclui já solucionados)
+- Períodos: chip Mês (calendário) no lugar de 30 dias; chip Geral (sem filtro de data); migrate prefs 30d→month
+- Chamados: nav/view “Abertos por mim”; ordenar/filtrar tabelas; TV pref/coluna “Abertos por mim”
+- UX: ícones recolher/expandir; paleta compartilhada de gráficos; gráficos do detalhe de ativo (overflow/grid/reflow)
+
+Version 2.31.0:
+
+- TV: “Solution approved” (ITILSolution ACCEPTED=3); today/week/month KPIs count tickets created in period (incl. solved)
+- Periods: Month calendar chip replaces 30 days; Overall (no date filter); migrate prefs 30d→month
+- Tickets: “Opened by me” nav/view; sortable/filterable tables; TV pref/column for same view
+- UX: collapse/expand nav icons; shared chart color palette; asset-detail charts (overflow/grid/reflow)
+
+Versão 2.30.0:
+
+- TV dark: faixa do KPI “Na semana” visível; label “Em atendimento (atribuído)”; KPI “No mês”; prefs visualizar por grupos / para mim / por entidade (sempre via ACL)
+- Chamados: item “Para mim” na barra; links para ticket.form.php; msgid Open → “Abertos”; período “Hoje”
+- Filtros: default entidade ativa + grupo do usuário se não houver pref salva
+- Ativos: tooltip (title) + ellipsis nos tiles/KPIs
+- Segurança: getGroupOptions sem `OR is_recursive = 1` (vazamento de grupos)
+- Perfis: Read/Update via domínio paineldebordo (Leitura/Atualização)
+- Avatar no `.ho-topnav` quando menu superior
+
+Version 2.30.0:
+
+- TV dark: week KPI stripe visible; “Processing (assigned)” label; month KPI; prefs by group / for me / by entity (ACL-scoped)
+- Tickets: “For me” nav; GLPI ticket links; Open → “Abertos”; period “Today”
+- Filters: default active entity + user group when no saved pref
+- Assets: title tooltips + ellipsis on tiles/KPIs
+- Security: getGroupOptions without bare `OR is_recursive = 1` (group leak)
+- Profiles: Read/Update via paineldebordo domain
+- Avatar inside `.ho-topnav` for top menu layout
+
+Versão 2.29.8:
+
+- Install: rebuild da tabela config (sem MODIFY) para evitar 1170; logs em Administração → Logs (`paineldebordo.log` + eventos)
+
+Version 2.29.8:
+
+- Install: rebuild config table (no MODIFY) to avoid 1170; logs in Administration → Logs (`paineldebordo.log` + events)
+
+Versão 2.29.7:
+
+- Install: ao alargar `config.value`, remove todos os índices secundários (evita 1170 mesmo com índice legado em `value`)
+
+Version 2.29.7:
+
+- Install: drop all secondary indexes before widening config.value (fixes stubborn MySQL 1170)
+
+Versão 2.29.6:
+
+- Install: alargar `config.value` para TEXT sem erro MySQL 1170 (remove índice em `value` antes do MODIFY)
+
+Version 2.29.6:
+
+- Install: widen config.value to TEXT without MySQL 1170 (drop indexes on value first)
+
+Versão 2.29.5:
+
+- Trigger do avatar: iniciais/foto em caixa fixa 28px; seta ao lado (não dentro do fundo colorido)
+
+Version 2.29.5:
+
+- Avatar trigger: fixed 28px face; chevron beside it (not inside the colored thumb)
+
+Versão 2.29.4:
+
+- Menu do avatar: seção “Usuário”; ao lado do ícone só o nome (sem prefixo)
+
+Version 2.29.4:
+
+- Avatar menu: “User” section; name only beside the icon
+
+Versão 2.29.3:
+
+- Menu do avatar: seções Você/Preferências, switches de menu superior e modo escuro, seta no trigger; lua redesenhada; botões soltos removidos da barra
+
+Version 2.29.3:
+
+- Avatar menu: You/Preferences sections, top-menu and dark-mode switches, chevron trigger; moon icon fixed; standalone bar toggles removed
+
+Versão 2.29.2:
+
+- Menu do avatar: ícone de usuário + “Usuário: nome” no cabeçalho
+
+Version 2.29.2:
+
+- Avatar menu: user icon + “User: name” in the header
+
+Versão 2.29.1:
+
+- Menu do avatar: nome do usuário dentro do painel, acima de “Voltar ao GLPI”
+
+Version 2.29.1:
+
+- Avatar menu: username inside the panel, above “Back to GLPI”
+
+Versão 2.29.0:
+
+- Barra superior: foto/iniciais do usuário ao lado do nome; clique abre menu “Voltar ao GLPI”
+
+Version 2.29.0:
+
+- Top bar: user photo/initials beside name; click opens “Back to GLPI” menu
+
+Versão 2.28.7:
+
+- TV: dicas de atalho (som/tema) em todo carregamento, 3s
+
+Version 2.28.7:
+
+- TV: shortcut tips every load, 3s TTL
+
+Versão 2.28.6:
+
+- Overview/Ativos/BI: tooltip com título completo nos cards com nome cortado (ellipsis)
+
+Version 2.28.6:
+
+- Overview/Assets/BI: native title tooltip on truncated panel titles
+
+Versão 2.28.5:
+
+- TV: scrollbar das colunas no mesmo estilo do menu lateral (laranja fino)
+
+Version 2.28.5:
+
+- TV: column scrollbars match side-nav (thin orange)
+
+Versão 2.28.4:
+
+- Favicon dinâmico: remove ícone estático laranja concorrente; `favicon.php` respeita `?c=`
+
+Version 2.28.4:
+
+- Dynamic favicon: drop competing static orange icon; honor `?c=` in favicon.php
+
+Versão 2.28.3:
+
+- Tema escuro: `--ho-font` volta no `:root` (não some mais a Source Sans 3 / cai em serif)
+
+Version 2.28.3:
+
+- Dark theme: keep `--ho-font` on bare `:root` (no serif fallback)
+
+Versão 2.28.2:
+
+- GLPI: botão Configurar (chave) abre Configuração (`public/config.php`), não a Visão geral
+- Nav unificada (rail + menu superior): só clique / `.is-open` — remove `:hover` que deixava dois flyouts abertos
+- Rail: ao recolher ou carregar recolhido, fecha grupos; evento `pdb-nav-rail-change`
+
+Version 2.28.2:
+
+- GLPI Configure wrench opens Configuration hub (not Overview)
+- Unified nav (rail + top): click / `.is-open` only — no hover double-flyout
+- Rail closes groups on collapse/load via `pdb-nav-rail-change`
+
+Versão 2.28.1:
+
+- Personalização: botão Restaurar padrão Inovare ao lado de Salvar (mesmo eixo)
+- Autores do plugin: gcarvallho.dev (WhatsApp wa.me/5591985390491) / Inovare (inovareempreendimentos.com.br) / Stevenes Donato
+- Remove “Service TIC”; homepage do plugin → site Inovare
+- Card Sistema na Configuração exibe os mesmos créditos com links clicáveis
+
+Version 2.28.1:
+
+- Personalization: Restore Inovare defaults beside Save
+- Plugin authors: gcarvallho.dev (WhatsApp) / Inovare (site) / Stevenes Donato
+- Drop “Service TIC”; homepage → Inovare; System card shows clickable credits
+
+Versão 2.28.0:
+
+- TV: modo escuro quebrado — branding aplicava cores claras em `:root` e sobrescrevia `[data-theme="dark"]`
+- Tokens/branding: seletor `:root:not([data-theme="dark"])` para não vazar claro no escuro
+- TV abre em modo claro por padrão (localStorage `pdb_tv_theme`, independente do tema do shell)
+- TV: botão sol/lua + atalho CTRL+Espaço para alternar tema
+- TV: toasts “Som ativado”, “Modo escuro ativado”, “Modo claro ativado”
+- TV: tip de atalho CTRL+Espaço (além do CTRL+M do som)
+- Pareamento TV (`tv_pair`): default de tema claro alinhado
+
+Version 2.28.0:
+
+- TV: fix broken dark mode (`:root` branding overrode dark tokens)
+- Light-token selector excludes dark; TV defaults to light (`pdb_tv_theme`)
+- TV theme toggle (sun/moon) + CTRL+Space; sound/theme tip toasts
+- Pairing screen light default aligned
+
+Versão 2.27.7:
+
+- Countdown TV pelo ttl_sec (corrige ~182 min por fuso); cor do favicon na Personalização; logs por etapa na instalação
+
+Version 2.27.7:
+
+- Pair countdown from ttl_sec; configurable favicon color; restore install step feedback
+
+Versão 2.27.6:
+
+- Rail: flyout dos grupos no clique/hover (overflow + is-open)
+
+Version 2.27.6:
+
+- Fix rail nav flyout (overflow clip + click open)
+
+Versão 2.27.5:
+
+- Countdown TV em min+s; ícones Overview/TV/Recursos; favicon SVG brand
+
+Version 2.27.5:
+
+- Pair countdown min+s; nav icons fix; brand favicon SVG
+
+Versão 2.27.4:
+
+- Menu Modo TV: Parear TV + Abrir TV logado; API tv_pair_api.php (anti-403)
+
+Version 2.27.4:
+
+- TV menu split (pair / signed-in); public tv_pair_api.php endpoint
+
+Versão 2.27.3:
+
+- TV: som ativo por padrão; pareamento sem CSRF 403; QR/link sem localhost falso
+
+Version 2.27.3:
+
+- TV unmuted by default; pair create without CSRF 403; absolute URL ignores loopback url_base
+
+Versão 2.27.2:
+
+- Fix: migrateModuleRights não chama addProfileRights (erro 1062 derrubava o plugin no load)
+
+Version 2.27.2:
+
+- Fix: idempotent module rights migrate (avoid MySQL 1062 aborting plugin load)
+Versão 2.27.1:
+
+- QA adversarial documentado (personas/páginas/AJAX/TV) + testes ACL estáticos
+
+Version 2.27.1:
+
+- Adversarial QA docs + static ACL test suite
+
+Versão 2.27.0:
+
+- Permissões por módulo (Chamados/Análise/Recursos); Admin só Super-Admin
+- TV: mute não força mudo sem “lembrar”; CTRL+M + tip empilhável
+
+Version 2.27.0:
+
+- Module ACL (Tickets/Analysis/Resources); Admin Super-Admin only
+- TV: mute init fix; CTRL+M + stacked tip toast
+
+Versão 2.26.0:
+
+- BI: palette em acordeões Chamados/Ativos/Texto; widgets de Ativos; modal DS ao sair sem salvar
+- Polimento: scrollbar do menu lateral; confirms do Config no modal DS
+
+Version 2.26.0:
+
+- BI accordion palette + assets widgets; DS leave-unsaved modal
+- Side nav scrollbar polish; Config confirms use DS modal
+
+Versão 2.25.2:
+
+- BI: renomear aba com confirmação; toasts de feedback
+
+Version 2.25.2:
+
+- BI: tab rename confirm; feedback toasts
+
+Versão 2.25.1:
+
+- Parque: ícones alinhados aos Indicadores; TV pair URL com root_doc + debug
+
+Version 2.25.1:
+
+- Park tiles icon layout; TV pair URL includes root_doc + debug
+
+Versão 2.25.0:
+
+- NOC Ativos: drill mural → listagem → detalhe com gráficos (disco/RAM)
+
+Version 2.25.0:
+
+- Assets NOC: mural → list → detail with disk/RAM charts
+
+Versão 2.24.4:
+
+- BI/AJAX: CSRF XHR (salvar várias vezes); draft após arrastar widgets
+
+Version 2.24.4:
+
+- BI/AJAX: CSRF XHR (repeat saves); draft after drag/resize
+
+Versão 2.24.3:
+
+- Menu superior: dropdown fechado ao carregar; só abre no clique
+
+Version 2.24.3:
+
+- Top menu: dropdowns closed on load; open on click only
+
+Versão 2.24.2:
+
+- BI Studio: save/feedback, período, abas, i18n, modal
+
+Version 2.24.2:
+
+- BI Studio: save/feedback, period, tabs, i18n, modal
+
+Versão 2.23.6:
+
+- Config TV: copiar link; apagar dispositivos; UX alinhada
+
+Version 2.23.6:
+
+- TV config: copy pairing link; delete devices; aligned UX
+
+Versão 2.23.5:
+
+- BI: adicionar cards abaixo do conteúdo; Cancelar alterações; Restaurar padrão na barra
+
+Version 2.23.5:
+
+- BI: place new cards below content; Cancel edits; Reset defaults in toolbar
+
+Versão 2.23.4:
+
+- TV: QR de autorização (login no celular/PC); Sair revoga o dispositivo; token inválido não cai em sessão
+
+Version 2.23.4:
+
+- TV: authorize QR (login on phone/PC); Exit revokes device; bad token no longer falls back to session
+
+Versão 2.23.3:
+
+- BI: Salvar só no Editar; adicionar widgets não some mais; drag pelo cabeçalho
+
+Version 2.23.3:
+
+- BI: Save only in Edit; adding widgets no longer discarded; drag via header
+
+Versão 2.23.2:
+
+- Ativos: UI em PT-BR; “parque” no lugar de “frota”; rótulos sem inglês residual
+
+Version 2.23.2:
+
+- Assets: full PT-BR; “park” instead of “fleet”; no leftover English labels
+
+Versão 2.23.1:
+
+- Ativos: SQL de agentes corrigido; grupo inválido não derruba a página; redirect legado absoluto
+
+Version 2.23.1:
+
+- Assets: fix agent SQL; soft-clear invalid group filter; absolute legacy redirect
+
+Versão 2.23.0:
+
+- NOC de Ativos: frota completa + disco/RAM/agente/garantia/licenças + assets_board
+
+Version 2.23.0:
+
+- Assets NOC: full fleet + disk/RAM/agent/warranty/licenses + assets_board
+
+Versão 2.22.1:
+
+- Mapa: CSS Leaflet corrigido + invalidateSize (tiles não quebram mais)
+
+Version 2.22.1:
+
+- Map: fix Leaflet CSS path + invalidateSize (tiles no longer broken)
+
+Versão 2.22.0:
+
+- BI: tela cheia (kiosk + Fullscreen do navegador, Esc para sair)
+
+Version 2.22.0:
+
+- BI: fullscreen kiosk (browser Fullscreen + Esc to exit)
+
+Versão 2.21.2:
+
+- BI: rascunho ao editar (não reseta abas/widgets); renomear página; POST layout no bi_board
+
+Version 2.21.2:
+
+- BI: draft layout while editing (no tab/widget reset); inline rename; bi_board accepts POST layout
+
+Versão 2.21.1:
+
+- BI: GridStack UMD (`gridstack-all.js`) + CDN fallback
+
+Version 2.21.1:
+
+- BI: GridStack UMD (`gridstack-all.js`) + CDN fallback
+
+Versão 2.21.0:
+
+- BI Studio (substitui Métricas): canvas drag/resize, abas, filtros por página, bi_layout
+
+Version 2.21.0:
+
+- BI Studio (replaces Metrics): drag/resize canvas, tabs, per-page filters, bi_layout
+
+Versão 2.20.2:
+
+- Overview: flex sem buracos; fullscreen acima do sider; prefs com ícones; i18n PT-BR
+
+Version 2.20.2:
+
+- Overview: no-gap flex rows; fullscreen above sider; prefs icons; PT-BR i18n
+
+Versão 2.20.1:
+
+- Config: `value` TEXT para caber JSON do mural personalizado
+
+Version 2.20.1:
+
+- Config: widen `value` to TEXT for mural layout JSON
+
+Versão 2.20.0:
+
+- Overview: personalizar mural (toggle/reorder KPIs, seções, gráficos; hero/spotlight)
+- Preferência por usuário `dashboard_layout` + AJAX overview_layout
+
+Version 2.20.0:
+
+- Overview: customize mural (toggle/reorder KPIs, sections, charts; hero/spotlight)
+- Per-user `dashboard_layout` + overview_layout AJAX
+
+Versão 2.19.0:
+
+- Overview NOC/BI: filtros reais (período/grupo/entidade), KPIs fluxo+snapshot, aging/flow/breach/filas
+- Gráficos com tela cheia e export JPG/PDF; AJAX overview_board
+
+Version 2.19.0:
+
+- Overview NOC/BI: real filters (period/group/entity), flow+snapshot KPIs, aging/flow/breach/queues
+- Charts fullscreen + JPG/PDF export; overview_board AJAX
+
+Versão 2.18.0:
+
+- Overview: mural rico com KPIs clicáveis, cards de atalho, spotlight e mosaico Highcharts
+
+Version 2.18.0:
+
+- Overview: rich mural with clickable KPIs, shortcut cards, spotlight and Highcharts mosaic
+
+Versão 2.17.0:
+
+- Shell: chips de período + select de Grupo no design system; filtros ocultos em Configuração
+- Configuração: checklist de entidades (sem listbox legado); cards padronizados
+- Relatórios/gráficos/chamados: toolbar e pickers alinhados ao DS
+
+Version 2.17.0:
+
+- Shell: period chips + styled Group select; filters hidden on Configuration
+- Configuration: entity checkbox list (no legacy multi-select); shared card chrome
+- Reports/charts/tickets: toolbar and pickers aligned to DS
+
+Versão 2.16.7:
+
+- TV: KPIs auto-ajustam a largura quando um card é ocultado
+
+Version 2.16.7:
+
+- TV: KPI strip flexes to fill width when cards are hidden
+
+Versão 2.16.6:
+
+- TV: KPI Mais antigo desligado por padrão (ainda disponível no menu Exibição)
+
+Version 2.16.6:
+
+- TV: Oldest ticket KPI off by default (still in Display settings)
+
+Versão 2.16.5:
+
+- TV: ícones no header das colunas (PREF_ICONS)
+- TV: cards reordenados (ID/idade → título → grupo/técnico → datas → prioridade/Ver)
+
+Version 2.16.5:
+
+- TV: column header icons (same as Display prefs)
+- TV: clearer card hierarchy (title first, actors muted, unified footer)
+
+Versão 2.16.4:
+
+- Fix TV: SQL observadores sem derived table (MySQL 1054 glpi_tickets.id)
+
+Version 2.16.4:
+
+- Fix TV observers SQL (MySQL 1054 outer ref in derived table)
+
+Versão 2.16.1:
+
+- Install: não falha mais com Duplicate key name 'location' (1061) no GLPI 11
+- DDL idempotente via try/catch (doQuery lança exceção)
+Versão 2.16.0:
+
+- TV prefs: campos do card (ID/datas/título/…) + ordenação mais novos primeiro
+- Ícones no menu Exibição; fix resolver (paths existentes ≠ doc)
+
+Versão 2.15.0:
+
+- TV: Validação (global_validation) ≠ Aprov. solução; KPI + coluna cada
+- Fix botão Ver, ícone engrenagem, observadores (user name + grupos)
+
+Versão 2.14.0:
+
+- TV: coluna/KPI aprovação; cards com data, observadores e botão abrir
+- KPI mais antigo enriquecido; menu de exibição (localStorage)
+- Fix toasts validação (date_approval); chime multi-nota; toast solução recusada
+
+Versão 2.13.0:
+
+- TV: técnico no card; KPIs hoje/semana/atrasados/mais antigo
+- Chrome TV: volume/fullscreen/sair (toggle áudio único)
+
+Versão 2.12.0:
+
+- Modo TV slim (2 KPIs, chrome ícone-only) + grupo nos cards
+- Toasts empilhados 5s: novo, solução aceita, reabertura, SLA atrasado
+- tv_events completo; fix status solução GLPI 11 (aceita=3 / recusa=4)
+
+Versão 2.11.0:
+
+- Menu agrupado: Chamados, Análise, Recursos, Admin
+- i18n pt_BR: período 7 dias/30 dias/Ano; KPIs Hoje/Mês/Ano; Configuração
+- Labels de filtro e Map/Assets no domínio do plugin
+
+Versão 2.10.0:
+
+- Overview = dashboard completo: 8 KPIs + 12 gráficos Highcharts ativos
+- Hero Evolution 7d + mosaico 2 col; helper chart_hc_type
+- KPIs Solved today / On-time %; datasets via charts.php
+
+Versão 2.9.0:
+
+- Hub Configuração (UPDATE): escopo, mapa, TVs, acesso, sistema
+- Prefs pessoais (READ) no chrome; Setup legado → config
+- insert_coord / map_coord com UPDATE + CSRF; aba Entidade alinhada
+- Pairing TV para técnicos na Overview
+
+Versão 2.8.0:
+
+- UI visual (ícones SVG, KPIs e hubs); Design Thinking onda 1
+- Modo TV: AJAX relativo + fallbacks + firewall marketplace + banner diagnóstico
+- Docs: VERSIONING, ARCHITECTURE, TESTING/DESIGN/README alinhados
+- CSS inline com is_file() (paths com acento no Windows)
+
+Versão 2.7.2:
+
+- CSS tokens inline + asset_base/bases; Highcharts com CDN fallback
+- chart_show restaurado; TV/TV pair com CSS confiável
+
+Versão 2.7.0:
+
+- Motor completo de relatórios modernos + CSV + insights
+
+Versão 2.4.3:
+
+- Install estável; TV wallboard por status; CSRF pairing
+
+Versão 2.3.0:
+
+- Reescrita completa: views/ + layout sem iframe
+- Tickets, gráficos, relatórios, métricas, mapa, ativos, setup no DS Inovare
+- Legado só redirect para shell
+
+Versão 2.2.0:
+
+- Pasta paineldebordo + Modo TV + testes
+
+
+Version 2.16.1:
+
+- Install: skip existing UNIQUE KEY location (MySQL 1061) under GLPI 11
+- Idempotent DDL catches doQuery exceptions
+Version 2.16.0:
+
+- TV prefs: card field toggles (ID/dates/title/…) + newest-first sort
+- Prefs panel icons; icon resolver no longer falls back to doc for known paths
+
+Version 2.15.0:
+
+- TV: ticket Validation vs Solution approval (KPI + column each)
+- Fix View button, gear icon, observers (login name + groups)
+
+Version 2.14.0:
+
+- TV: approval column/KPI; cards with open date, observers, open button
+- Enriched oldest KPI; display settings menu (localStorage)
+- Fix validation toasts (date_approval); multi-note chime; refused-solution toast
+
+Version 2.13.0:
+
+- TV: technician on cards; KPIs today/week/late/oldest
+- TV chrome: volume/fullscreen/exit (single audio toggle)
+
+Version 2.12.0:
+
+- Slim TV wallboard (2 KPIs, icon-only chrome) + group on cards
+- Stacked 5s toasts: new, solution accepted, reopen, SLA late
+- Full tv_events feed; GLPI 11 solution status fix (accepted=3 / refused=4)
+
+Version 2.11.0:
+
+- Grouped nav: Tickets, Analysis, Resources, Admin
+- pt_BR i18n: 7 days/30 days/Year chips; Today/Month/Year KPIs; Configuration
+- Period labels and Map/Assets use plugin domain
+
+Version 2.10.0:
+
+- Overview = full dashboard: 8 KPIs + all 12 Highcharts live
+- Hero Evolution 7d + 2-col mosaic; chart_hc_type helper
+- Solved today / On-time % KPIs; datasets via charts.php
+
+Version 2.9.0:
+
+- Configuration hub (UPDATE): scope, map, TVs, access, system
+- Personal prefs stay in chrome (READ); legacy Setup → config
+- Hardened map save (UPDATE + CSRF); Entity tab aligned
+- TV pairing shortcut on Overview for READ-only technicians
+
+Version 2.8.0:
+
+- Visual UI wave (inline SVG icons, KPI/hub tiles); Design Thinking wave 1
+- TV: relative AJAX + fallbacks + marketplace firewall + diagnostic banner
+- Docs aligned (VERSIONING, ARCHITECTURE, TESTING, DESIGN, README)
+- Inline CSS via is_file() for accented Windows paths
+
+Version 2.7.2:
+
+- Inline CSS tokens + asset_base; Highcharts CDN fallback; chart_show fixed
+
+Version 2.7.0:
+
+- Full modern reports engine + CSV + insights
+
+Version 2.4.3:
+
+- Stable install; TV wallboard by status; pairing CSRF
+
+Version 2.3.0:
+
+- Full rewrite: shared layout, modern views, zero iframe in shell
+- Legacy entrypoints redirect only
+
+Version 2.2.0:
+
+- Plugin folder paineldebordo + TV mode

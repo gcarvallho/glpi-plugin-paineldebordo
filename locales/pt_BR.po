@@ -1,0 +1,1952 @@
+# Painel de Bordo — Brazilian Portuguese
+msgid ""
+msgstr ""
+"Project-Id-Version: paineldebordo 2.16.4\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Painel de Bordo"
+msgstr "Painel de Bordo"
+
+msgid "Inovare - Hub"
+msgstr "Inovare - Hub"
+
+msgid "Overview"
+msgstr "Visão geral"
+
+msgid "TV mode"
+msgstr "Modo TV"
+
+msgid "Pair TV"
+msgstr "Parear TV"
+
+msgid "Tickets"
+msgstr "Chamados"
+
+msgid "Open tickets"
+msgstr "Chamados abertos"
+
+msgid "By group"
+msgstr "Por grupo"
+
+msgid "By entity"
+msgstr "Por entidade"
+
+msgid "Analysis"
+msgstr "Análise"
+
+msgid "Charts"
+msgstr "Gráficos"
+
+msgid "Chart"
+msgstr "Gráfico"
+
+msgid "Reports"
+msgstr "Relatórios"
+
+msgid "Report"
+msgstr "Relatório"
+
+msgid "Metrics"
+msgstr "Métricas"
+
+msgid "Resources"
+msgstr "Recursos"
+
+msgid "Map"
+msgstr "Mapa"
+
+msgid "%d locations"
+msgstr "%d localizações"
+
+msgid "Admin"
+msgstr "Admin"
+
+msgid "Configuration"
+msgstr "Configuração"
+
+msgid "Today"
+msgstr "Hoje"
+
+msgid "Month"
+msgstr "Mês"
+
+msgid "Year"
+msgstr "Ano"
+
+msgid "7 days"
+msgstr "7 dias"
+
+msgid "30 days"
+msgstr "30 dias"
+
+msgid "Period filter"
+msgstr "Filtro de período"
+
+msgid "Side menu"
+msgstr "Menu lateral"
+
+msgid "Top menu"
+msgstr "Menu superior"
+
+msgid "User menu"
+msgstr "Menu do usuário"
+
+msgid "You"
+msgstr "Você"
+
+msgid "Preferences"
+msgstr "Preferências"
+
+msgid "Dark mode"
+msgstr "Modo escuro"
+
+msgid "User: %s"
+msgstr "Usuário: %s"
+
+msgid "Back to GLPI"
+msgstr "Voltar ao GLPI"
+
+msgid "Menu position"
+msgstr "Posição do menu"
+
+msgid "Authors"
+msgstr "Autores"
+
+msgid "Light"
+msgstr "Claro"
+
+msgid "Dark"
+msgstr "Escuro"
+
+msgid "Theme"
+msgstr "Tema"
+
+msgid "Sound enabled"
+msgstr "Som ativado"
+
+msgid "Dark mode enabled"
+msgstr "Modo escuro ativado"
+
+msgid "Light mode enabled"
+msgstr "Modo claro ativado"
+
+msgid "CTRL+Space switches light and dark theme"
+msgstr "CTRL+Espaço alterna o tema claro e escuro"
+
+msgid "Appearance"
+msgstr "Aparência"
+
+msgid "Saved"
+msgstr "Salvo"
+
+msgid "Open"
+msgstr "Abertos"
+
+msgid "Late"
+msgstr "Atrasados"
+
+msgid "Listed"
+msgstr "Listados"
+
+msgid "Opened"
+msgstr "Abertura"
+
+msgid "No open tickets"
+msgstr "Nenhum chamado aberto"
+
+msgid "No tickets"
+msgstr "Nenhum chamado"
+
+msgid "Select a group"
+msgstr "Selecione um grupo"
+
+msgid "Select an entity"
+msgstr "Selecione uma entidade"
+
+msgid "Backlog"
+msgstr "Fila"
+
+msgid "Opened today"
+msgstr "Abertos hoje"
+
+msgid "Solved today"
+msgstr "Solucionados hoje"
+
+msgid "On time %"
+msgstr "% no prazo"
+
+msgid "On time"
+msgstr "No prazo"
+
+msgid "Operational metrics"
+msgstr "Métricas operacionais"
+
+msgid "Live counters using the same filters as the rest of Painel de Bordo."
+msgstr "Contadores ao vivo com os mesmos filtros do Painel de Bordo."
+
+msgid "Open by status"
+msgstr "Abertos por status"
+
+msgid "Open by priority"
+msgstr "Abertos por prioridade"
+
+msgid "Evolution 7d"
+msgstr "Evolução 7d"
+
+msgid "By technician"
+msgstr "Por técnico"
+
+msgid "By category"
+msgstr "Por categoria"
+
+msgid "SLA late"
+msgstr "SLA atrasado"
+
+msgid "Backlog distribution"
+msgstr "Distribuição da fila"
+
+msgid "Priority mix"
+msgstr "Mix de prioridades"
+
+msgid "Opened last 7 days"
+msgstr "Abertos nos últimos 7 dias"
+
+msgid "Assigned groups"
+msgstr "Grupos atribuídos"
+
+msgid "Open tickets per tech"
+msgstr "Abertos por técnico"
+
+msgid "Top categories"
+msgstr "Principais categorias"
+
+msgid "Open per entity"
+msgstr "Abertos por entidade"
+
+msgid "Late vs on-time open"
+msgstr "Atrasados vs no prazo"
+
+msgid "Open tickets list"
+msgstr "Lista de chamados abertos"
+
+msgid "Count by status"
+msgstr "Contagem por status"
+
+msgid "Count by priority"
+msgstr "Contagem por prioridade"
+
+msgid "Late open tickets"
+msgstr "Chamados abertos atrasados"
+
+msgid "Due in 24h"
+msgstr "Vencem em 24h"
+
+msgid "Open by technician"
+msgstr "Abertos por técnico"
+
+msgid "Open by group"
+msgstr "Abertos por grupo"
+
+msgid "Open by entity"
+msgstr "Abertos por entidade"
+
+msgid "Open by category"
+msgstr "Abertos por categoria"
+
+msgid "People / Groups"
+msgstr "Pessoas / Grupos"
+
+msgid "Structure"
+msgstr "Estrutura"
+
+msgid "Unknown report"
+msgstr "Relatório desconhecido"
+
+msgid "No data"
+msgstr "Sem dados"
+
+msgid "Default entities filter"
+msgstr "Filtro padrão de entidades"
+
+msgid "Leave empty to use active GLPI entities. Hold Ctrl to multi-select."
+msgstr "Deixe vazio para usar as entidades ativas do GLPI. Segure Ctrl para selecionar várias."
+
+msgid "All my groups"
+msgstr "Todos os meus grupos"
+
+msgid "View not found"
+msgstr "Tela não encontrada"
+
+msgid "You are not allowed to view this group."
+msgstr "Você não tem permissão para ver este grupo."
+
+msgid "No map coordinates configured. Use Setup / Entity map tab."
+msgstr "Nenhuma coordenada configurada. Use a aba de mapa na entidade."
+
+msgid "Dashboard map"
+msgstr "Mapa do painel"
+
+msgid "Requesters"
+msgstr "Requerentes"
+
+msgid "This month"
+msgstr "No mês"
+
+msgid "Tickets evolution"
+msgstr "Evolução de chamados"
+
+msgid "Solution refused"
+msgstr "Solução negada"
+
+msgid "Solution accepted"
+msgstr "Solução aceita"
+
+msgid "Reopened"
+msgstr "Reabertura"
+
+msgid "New ticket"
+msgstr "Novo chamado"
+
+msgid "Update"
+msgstr "Atualização"
+
+msgid "New"
+msgstr "Novo"
+
+msgid "Assigned"
+msgstr "Atribuído"
+
+msgid "Processing (assigned)"
+msgstr "Em atendimento (atribuído)"
+
+msgid "In progress"
+msgstr "Em atendimento"
+
+msgid "Week"
+msgstr "Semana"
+
+msgid "Approved"
+msgstr "Aprovado"
+
+msgid "Planned"
+msgstr "Planejado"
+
+msgid "Pending"
+msgstr "Pendente"
+
+msgid "Solved"
+msgstr "Solucionado"
+
+msgid "This week"
+msgstr "Na semana"
+
+msgid "Oldest ticket"
+msgstr "Mais antigo"
+
+msgid "Sound on"
+msgstr "Som ligado"
+
+msgid "Sound off"
+msgstr "Som mudo"
+
+msgid "Approval"
+msgstr "Aprovação"
+
+msgid "Waiting approval"
+msgstr "Aguardando aprovação"
+
+msgid "Validation"
+msgstr "Validação"
+
+msgid "Solution approved"
+msgstr "Solução aprovada"
+
+msgid "Waiting for validation"
+msgstr "Aguardando validação"
+
+msgid "View"
+msgstr "Ver"
+
+msgid "View button"
+msgstr "Botão Ver"
+
+msgid "Ticket ID"
+msgstr "ID do chamado"
+
+msgid "Title"
+msgstr "Título"
+
+msgid "Last update"
+msgstr "Última atualização"
+
+msgid "Priority"
+msgstr "Prioridade"
+
+msgid "Sort"
+msgstr "Ordenação"
+
+msgid "Newest first"
+msgstr "Mais novos primeiro"
+
+msgid "Oldest first"
+msgstr "Mais antigos primeiro"
+
+msgid "Late, then newest"
+msgstr "Atrasados, depois novos"
+
+msgid "Display settings"
+msgstr "Exibição"
+
+msgid "Columns"
+msgstr "Colunas"
+
+msgid "KPIs"
+msgstr "KPIs"
+
+msgid "Card fields"
+msgstr "Campos do card"
+
+msgid "Toasts"
+msgstr "Toasts"
+
+msgid "Audio"
+msgstr "Áudio"
+
+msgid "Density"
+msgstr "Densidade"
+
+msgid "Open ticket"
+msgstr "Abrir chamado"
+
+msgid "Open button"
+msgstr "Botão abrir"
+
+msgid "Open date"
+msgstr "Data de abertura"
+
+msgid "Observers"
+msgstr "Observadores"
+
+msgid "SLA badge"
+msgstr "Badge SLA"
+
+msgid "Age"
+msgstr "Idade"
+
+msgid "Technician"
+msgstr "Técnico"
+
+msgid "Group"
+msgstr "Grupo"
+
+msgid "Cards per column"
+msgstr "Cards por coluna"
+
+msgid "Chime sounds"
+msgstr "Sons (chime)"
+
+msgid "Remember mute"
+msgstr "Lembrar mudo"
+
+msgid "CTRL+M turns sound on or off"
+msgstr "CTRL+M ativa ou desativa o som"
+
+msgid "Tip"
+msgstr "Dica"
+
+msgid "Only Super-Admin can open Configuration."
+msgstr "Somente o Super-Admin pode abrir a Configuração."
+
+msgid "You do not have permission for this module."
+msgstr "Você não tem permissão para este módulo."
+
+msgid "Read: enter the app (Overview + TV). Update: wide group vision on tickets/TV — does not open Admin."
+msgstr "Leitura: entrar no app (Visão geral + TV). Atualização: visão ampla de grupos nos chamados/TV — não abre Admin."
+
+msgid "Read: Chamados module (open tickets, by group, by entity)."
+msgstr "Leitura: módulo Chamados (abertos, por grupo, por entidade)."
+
+msgid "Read: charts, reports, BI. Update: save BI layout and Overview mural."
+msgstr "Leitura: gráficos, relatórios, BI. Atualização: salvar layout do BI e mural da Visão geral."
+
+msgid "Read: map and assets. Update: edit map coordinates."
+msgstr "Leitura: mapa e ativos. Atualização: editar coordenadas do mapa."
+
+msgid "Only Super-Admin (or GLPI config Update) opens this Configuration hub."
+msgstr "Somente o Super-Admin (ou Atualização de configuração do GLPI) abre este hub de Configuração."
+
+msgid "Updates"
+msgstr "Atualizações"
+
+msgid "Enable audio"
+msgstr "Ativar áudio"
+
+msgid "Mute"
+msgstr "Mudo"
+
+msgid "Exit TV"
+msgstr "Sair do TV"
+
+msgid "Fullscreen"
+msgstr "Tela cheia"
+
+msgid "Exit fullscreen"
+msgstr "Sair da tela cheia"
+
+msgid "Audio on"
+msgstr "Áudio ativo"
+
+msgid "Sound"
+msgstr "Som"
+
+msgid "Time"
+msgstr "Hora"
+
+msgid "Event"
+msgstr "Evento"
+
+msgid "Waiting for events…"
+msgstr "Aguardando eventos…"
+
+msgid "Failed to load events"
+msgstr "Erro ao carregar eventos"
+
+msgid "TV mode connection failed"
+msgstr "Falha na conexão do Modo TV"
+
+msgid "Open the pairing link on the TV screen, then enter the code below."
+msgstr "Abra o link de vinculação na TV e digite o código abaixo."
+
+msgid "Open TV pairing link"
+msgstr "Abrir link de vinculação TV"
+
+msgid "Open logged-in TV"
+msgstr "Abrir TV logado"
+
+msgid "Pairing code"
+msgstr "Código de vinculação"
+
+msgid "Link TV"
+msgstr "Vincular TV"
+
+msgid "Code"
+msgstr "Código"
+
+msgid "Linked at"
+msgstr "Vinculado em"
+
+msgid "Revoke"
+msgstr "Revogar"
+
+msgid "Delete"
+msgstr "Apagar"
+
+msgid "Device revoked"
+msgstr "Dispositivo revogado"
+
+msgid "Device deleted"
+msgstr "Dispositivo apagado"
+
+msgid "Invalid or expired code"
+msgstr "Código inválido ou expirado"
+
+msgid "Delete this device record permanently?"
+msgstr "Apagar este registro de dispositivo permanentemente?"
+
+msgid "TV pairing link"
+msgstr "Link de pareamento da TV"
+
+msgid "Copy link"
+msgstr "Copiar link"
+
+msgid "Link copied"
+msgstr "Link copiado"
+
+msgid "Open pairing URL"
+msgstr "Abrir"
+
+msgid "Open this URL on the display (no login). Authorize from phone/PC with the code or QR."
+msgstr "Abra este link na TV (sem login). Autorize no celular/PC com o código ou QR."
+
+msgid "Revoke ends access; Delete removes the history row."
+msgstr "Revogar encerra o acesso; Apagar remove o registro do histórico."
+
+msgid "Linked"
+msgstr "Vinculado"
+
+msgid "Pending"
+msgstr "Pendente"
+
+msgid "Revoked"
+msgstr "Revogado"
+
+msgid "Expired"
+msgstr "Expirado"
+
+msgid "Actions"
+msgstr "Ações"
+
+msgid "Personalization"
+msgstr "Personalização"
+
+msgid "Primary / sidebar"
+msgstr "Primária / menu"
+
+msgid "Accent"
+msgstr "Destaque"
+
+msgid "Favicon"
+msgstr "Favicon"
+
+msgid "Background"
+msgstr "Fundo"
+
+msgid "Surface"
+msgstr "Superfície"
+
+msgid "Text"
+msgstr "Texto"
+
+msgid "Eyebrow"
+msgstr "Linha superior"
+
+msgid "Product name"
+msgstr "Nome do produto"
+
+msgid "Default logos (bundled)"
+msgstr "Logos padrão (no plugin)"
+
+msgid "Custom logo URL (expanded)"
+msgstr "URL da logo (expandida)"
+
+msgid "Custom logo URL (collapsed)"
+msgstr "URL da logo (recolhida)"
+
+msgid "Leave logo URLs empty to use the Inovare files shipped with the plugin."
+msgstr "Deixe as URLs vazias para usar os arquivos Inovare incluídos no plugin."
+
+msgid "Restore Inovare defaults"
+msgstr "Restaurar padrão Inovare"
+
+msgid "Restore Inovare default branding?"
+msgstr "Restaurar a marca padrão Inovare?"
+
+msgid "Branding restored"
+msgstr "Marca restaurada"
+
+msgid "Layout saved"
+msgstr "Layout salvo"
+
+msgid "Could not save the layout. Try again."
+msgstr "Não foi possível salvar o layout. Tente de novo."
+
+msgid "Defaults restored"
+msgstr "Padrões restaurados"
+
+msgid "Page added — click Save to keep it."
+msgstr "Página adicionada — clique em Salvar para manter."
+
+msgid "You have unsaved BI changes."
+msgstr "Há alterações não salvas no BI."
+
+msgid "Unsaved changes"
+msgstr "Alterações não salvas"
+
+msgid "You have unsaved BI changes. Discard them and continue?"
+msgstr "Você tem alterações não salvas no BI. Descartar e continuar?"
+
+msgid "Discard"
+msgstr "Descartar"
+
+msgid "Alert lists"
+msgstr "Listas de alerta"
+
+msgid "Confirm"
+msgstr "Confirmar"
+
+msgid "Open link"
+msgstr "Abrir"
+
+msgid "Collapse menu"
+msgstr "Recolher menu"
+
+msgid "Expand menu"
+msgstr "Expandir menu"
+
+msgid "Code expires in"
+msgstr "Código expira em"
+
+msgid "Code about to expire — refreshing soon…"
+msgstr "Código prestes a expirar — atualizando em breve…"
+
+msgid "Code updated. Scan or enter the new code."
+msgstr "Código atualizado. Escaneie ou digite o novo código."
+
+msgid "Device"
+msgstr "Dispositivo"
+
+msgid "Nickname"
+msgstr "Apelido"
+
+msgid "Nickname saved"
+msgstr "Apelido salvo"
+
+msgid "IP / timezone"
+msgstr "IP / fuso"
+
+msgid "Pairing code lifetime"
+msgstr "Validade do código"
+
+msgid "3 minutes"
+msgstr "3 minutos"
+
+msgid "5 minutes"
+msgstr "5 minutos"
+
+msgid "10 minutes"
+msgstr "10 minutos"
+
+msgid "Unknown device"
+msgstr "Dispositivo desconhecido"
+
+msgid "Browser"
+msgstr "Navegador"
+
+msgid "OS"
+msgstr "SO"
+
+msgid "TV linked successfully"
+msgstr "TV vinculada com sucesso"
+
+msgid "Enter this code in Painel de Bordo → Setup to authorize this screen."
+msgstr "Digite este código em Painel de Bordo → Configurar para autorizar esta tela."
+
+msgid "Scan the QR code with your phone, or enter this code in Painel de Bordo → Setup to authorize this screen."
+msgstr "Escaneie o QR Code com o celular ou digite este código em Painel de Bordo → Configurar para autorizar esta tela."
+
+msgid "Scan with your phone; if you are not logged into GLPI, sign in and authorize this TV."
+msgstr "Escaneie com o celular; se não estiver logado no GLPI, faça login e autorize esta TV."
+
+msgid "Authorize TV"
+msgstr "Autorizar TV"
+
+msgid "Authorize this TV"
+msgstr "Autorizar esta TV"
+
+msgid "Authorizing…"
+msgstr "Autorizando…"
+
+msgid "Confirm that you want to authorize this display to show Painel de Bordo."
+msgstr "Confirme que deseja autorizar esta tela a exibir o Painel de Bordo."
+
+msgid "No pairing code in this link. Open the QR from the TV screen or enter the code in Setup."
+msgstr "Nenhum código neste link. Abra o QR da tela da TV ou digite o código em Configurar."
+
+msgid "Checking saved link…"
+msgstr "Verificando vínculo salvo…"
+
+msgid "Generating code…"
+msgstr "Gerando código…"
+
+msgid "Waiting for authorization…"
+msgstr "Aguardando autorização…"
+
+msgid "Linked — loading wallboard…"
+msgstr "Vinculado — carregando painel…"
+
+msgid "Code expired. Refresh to get a new one."
+msgstr "Código expirado. Atualize para gerar outro."
+
+msgid "Could not create pairing code."
+msgstr "Não foi possível criar o código."
+
+msgid "No groups assigned to your user. TV mode only shows what you can see."
+msgstr "Nenhum grupo atribuído ao seu usuário. O Modo TV só mostra o que você pode ver."
+
+msgid "You do not have permission for Painel de Bordo."
+msgstr "Sem permissão para o Painel de Bordo."
+
+msgid "Painel de Bordo — starting installation…"
+msgstr "Painel de Bordo — iniciando instalação…"
+
+msgid "Painel de Bordo — step failed: %1$s%2$s"
+msgstr "Painel de Bordo — etapa falhou: %1$s%2$s"
+
+msgid "Painel de Bordo — step already applied (skipped): %s"
+msgstr "Painel de Bordo — etapa já aplicada (ignorada): %s"
+
+msgid "Painel de Bordo — migrated %d legacy table(s)"
+msgstr "Painel de Bordo — %d tabela(s) legada(s) migrada(s)"
+
+msgid "Painel de Bordo — no legacy tables to rename"
+msgstr "Painel de Bordo — nenhuma tabela legada para renomear"
+
+msgid "Painel de Bordo — profile rights checked"
+msgstr "Painel de Bordo — direitos de perfil verificados"
+
+msgid "Painel de Bordo — table count created"
+msgstr "Painel de Bordo — tabela count criada"
+
+msgid "Painel de Bordo — table count already exists"
+msgstr "Painel de Bordo — tabela count já existe"
+
+msgid "Painel de Bordo — table map created"
+msgstr "Painel de Bordo — tabela map criada"
+
+msgid "Painel de Bordo — table map already exists"
+msgstr "Painel de Bordo — tabela map já existe"
+
+msgid "Painel de Bordo — table config created"
+msgstr "Painel de Bordo — tabela config criada"
+
+msgid "Painel de Bordo — table config already exists"
+msgstr "Painel de Bordo — tabela config já existe"
+
+msgid "Painel de Bordo — schema adjustments done"
+msgstr "Painel de Bordo — ajustes de schema concluídos"
+
+msgid "Painel de Bordo — profile rights granted"
+msgstr "Painel de Bordo — direitos de perfil concedidos"
+
+msgid "Painel de Bordo — profile rights failed: %s"
+msgstr "Painel de Bordo — falha nos direitos de perfil: %s"
+
+msgid "Painel de Bordo — TV pairing table ready"
+msgstr "Painel de Bordo — tabela de vinculação TV pronta"
+
+msgid "Painel de Bordo — TV devices table was not created"
+msgstr "Painel de Bordo — tabela de dispositivos TV não foi criada"
+
+msgid "Painel de Bordo — TV devices step failed: %s"
+msgstr "Painel de Bordo — falha na etapa de dispositivos TV: %s"
+
+msgid "Painel de Bordo installed successfully (%d steps)."
+msgstr "Painel de Bordo instalado com sucesso (%d etapas)."
+
+msgid "Painel de Bordo — starting uninstall…"
+msgstr "Painel de Bordo — iniciando desinstalação…"
+
+msgid "Painel de Bordo — dropped %s"
+msgstr "Painel de Bordo — removida %s"
+
+msgid "Painel de Bordo — profile rights removed"
+msgstr "Painel de Bordo — direitos de perfil removidos"
+
+msgid "Painel de Bordo — uninstall profile failed: %s"
+msgstr "Painel de Bordo — falha ao remover perfil: %s"
+
+msgid "Painel de Bordo uninstalled successfully."
+msgstr "Painel de Bordo desinstalado com sucesso."
+
+msgid "Requires GLPI >= 11.0 (detected: %s)."
+msgstr "Requer GLPI >= 11.0 (detectado: %s)."
+
+msgid "Requires PHP >= 8.1 (detected: %s)."
+msgstr "Requer PHP >= 8.1 (detectado: %s)."
+
+msgid "PHP extension missing: json"
+msgstr "Extensão PHP ausente: json"
+
+msgid "PHP extension missing: mysqli or pdo_mysql"
+msgstr "Extensão PHP ausente: mysqli ou pdo_mysql"
+
+msgid "Painel de Bordo is not fully installed. Missing table(s): %s. Reinstall or update the plugin."
+msgstr "Painel de Bordo não está totalmente instalado. Tabela(s) ausente(s): %s. Reinstale ou atualize o plugin."
+
+msgid "Painel de Bordo is installed and ready."
+msgstr "Painel de Bordo está instalado e pronto."
+
+msgid "Setup"
+msgstr "Configurar"
+
+msgid "By type"
+msgstr "Por tipo"
+
+msgid "Incident / request mix"
+msgstr "Mix incidente / requisição"
+
+msgid "By source"
+msgstr "Por origem"
+
+msgid "Ticket origin"
+msgstr "Origem do chamado"
+
+msgid "By location"
+msgstr "Por localidade"
+
+msgid "Open by location"
+msgstr "Abertos por localidade"
+
+msgid "By requester"
+msgstr "Por requerente"
+
+msgid "Top requesters"
+msgstr "Principais requerentes"
+
+msgid "Interactive charts for the same ticket scope as Open tickets."
+msgstr "Gráficos interativos com o mesmo escopo dos Chamados abertos."
+
+msgid "No charts available"
+msgstr "Nenhum gráfico disponível"
+
+msgid "failed to load"
+msgstr "falhou ao carregar"
+
+msgid "Invalid CSRF token"
+msgstr "Token CSRF inválido"
+
+msgid "TV link failed"
+msgstr "Falha ao vincular TV"
+
+msgid "Assets"
+msgstr "Ativos"
+
+msgid "Open queues"
+msgstr "Filas abertas"
+
+msgid "Loading queues…"
+msgstr "Carregando filas…"
+
+msgid "Live"
+msgstr "Ao vivo"
+
+msgid "No open tickets in this queue"
+msgstr "Nenhum chamado aberto nesta fila"
+
+msgid "more"
+msgstr "mais"
+
+msgid "Failed to load queues"
+msgstr "Falha ao carregar filas"
+
+msgid "Painel de Bordo installed successfully."
+msgstr "Painel de Bordo instalado com sucesso."
+
+msgid "Tickets in period"
+msgstr "Chamados no período"
+
+msgid "By technician (detail)"
+msgstr "Por técnico (detalhe)"
+
+msgid "By group (detail)"
+msgstr "Por grupo (detalhe)"
+
+msgid "Group × technician"
+msgstr "Grupo × técnico"
+
+msgid "Group × requester"
+msgstr "Grupo × requerente"
+
+msgid "By entity (detail)"
+msgstr "Por entidade (detalhe)"
+
+msgid "By category"
+msgstr "Por categoria"
+
+msgid "By location"
+msgstr "Por localidade"
+
+msgid "By day (opened / solved)"
+msgstr "Por dia (abertos / solucionados)"
+
+msgid "By SLA policy"
+msgstr "Por política de SLA"
+
+msgid "SLA time to own"
+msgstr "SLA tempo até apropriação"
+
+msgid "SLA time to resolve"
+msgstr "SLA tempo até solução"
+
+msgid "OLA time to own"
+msgstr "OLA tempo até apropriação"
+
+msgid "OLA time to resolve"
+msgstr "OLA tempo até solução"
+
+msgid "Breach radar"
+msgstr "Radar de vencimento"
+
+msgid "Satisfaction"
+msgstr "Satisfação"
+
+msgid "Satisfaction detail"
+msgstr "Detalhe de satisfação"
+
+msgid "Satisfaction vs SLA"
+msgstr "Satisfação vs SLA"
+
+msgid "Costs"
+msgstr "Custos"
+
+msgid "Cost by technician"
+msgstr "Custo por técnico"
+
+msgid "Cost by requester"
+msgstr "Custo por requerente"
+
+msgid "Cost by location"
+msgstr "Custo por localidade"
+
+msgid "Cost by entity"
+msgstr "Custo por entidade"
+
+msgid "Tasks"
+msgstr "Tarefas"
+
+msgid "Tasks list"
+msgstr "Lista de tarefas"
+
+msgid "Tasks by ticket"
+msgstr "Tarefas por chamado"
+
+msgid "Tasks by group"
+msgstr "Tarefas por grupo"
+
+msgid "Tasks by requester"
+msgstr "Tarefas por requerente"
+
+msgid "Tasks by entity"
+msgstr "Tarefas por entidade"
+
+msgid "Assets summary"
+msgstr "Resumo de ativos"
+
+msgid "Projects"
+msgstr "Projetos"
+
+msgid "Project tasks"
+msgstr "Tarefas de projeto"
+
+msgid "Synthetic"
+msgstr "Sintéticos"
+
+msgid "Synthetic overview"
+msgstr "Visão sintética"
+
+msgid "Synthetic by entity"
+msgstr "Sintético por entidade"
+
+msgid "Synthetic by technician"
+msgstr "Sintético por técnico"
+
+msgid "Synthetic by requester"
+msgstr "Sintético por requerente"
+
+msgid "Synthetic by group"
+msgstr "Sintético por grupo"
+
+msgid "Insights"
+msgstr "Insights"
+
+msgid "Aging buckets"
+msgstr "Faixas de envelhecimento"
+
+msgid "Opened vs solved"
+msgstr "Abertos vs solucionados"
+
+msgid "First response risk"
+msgstr "Risco de 1ª resposta"
+
+msgid "Reopen rate"
+msgstr "Taxa de reabertura"
+
+msgid "Workload fairness"
+msgstr "Equilíbrio de carga"
+
+msgid "Hot categories"
+msgstr "Categorias quentes"
+
+msgid "Export CSV"
+msgstr "Exportar CSV"
+
+msgid "Showing first 500 rows"
+msgstr "Exibindo as primeiras 500 linhas"
+
+msgid "Modern reports with the same ticket scope as Open tickets. Use the period filter above (7d / 30d / YTD)."
+msgstr "Relatórios modernos com o mesmo escopo dos Chamados abertos. Use o filtro de período acima (7d / 30d / YTD)."
+
+msgid "Late %"
+msgstr "% atrasados"
+
+msgid "Hours left"
+msgstr "Horas restantes"
+
+msgid "Responses"
+msgstr "Respostas"
+
+msgid "Avg score"
+msgstr "Nota média"
+
+msgid "Bucket"
+msgstr "Faixa"
+
+msgid "Cost"
+msgstr "Custo"
+
+msgid "Duration"
+msgstr "Duração"
+
+msgid "Items"
+msgstr "Itens"
+
+msgid "With tickets"
+msgstr "Com chamados"
+
+msgid "Metric"
+msgstr "Métrica"
+
+msgid "Opened in period"
+msgstr "Abertos no período"
+
+msgid "Solved in period"
+msgstr "Solucionados no período"
+
+msgid "Avg satisfaction"
+msgstr "Satisfação média"
+
+msgid "Satisfaction responses"
+msgstr "Respostas de satisfação"
+
+msgid "Balance"
+msgstr "Saldo"
+
+msgid "TTO due"
+msgstr "TTO vence"
+
+msgid "State"
+msgstr "Situação"
+
+msgid "Due in 4h"
+msgstr "Vence em 4h"
+
+msgid "Reopens"
+msgstr "Reaberturas"
+
+msgid "This month"
+msgstr "No mês"
+
+msgid "Prev month"
+msgstr "Mês anterior"
+
+msgid "Growth"
+msgstr "Crescimento"
+
+msgid "vs avg"
+msgstr "vs média"
+
+msgid "Date"
+msgstr "Data"
+
+msgid "Location"
+msgstr "Localidade"
+
+msgid "Requester"
+msgstr "Requerente"
+
+msgid "Technician"
+msgstr "Técnico"
+
+msgid "Group"
+msgstr "Grupo"
+
+msgid "Entity"
+msgstr "Entidade"
+
+msgid "All entities"
+msgstr "Todas as entidades"
+
+msgid "Category"
+msgstr "Categoria"
+
+msgid "Preview"
+msgstr "Prévia"
+
+msgid "Close"
+msgstr "Fechar"
+
+msgid "Open full ticket"
+msgstr "Abrir chamado completo"
+
+msgid "Task"
+msgstr "Tarefa"
+
+msgid "Project"
+msgstr "Projeto"
+
+msgid "Type"
+msgstr "Tipo"
+
+msgid "SLA TTO"
+msgstr "SLA TTO"
+
+msgid "OLA TTR"
+msgstr "OLA TTR"
+
+msgid "OLA TTO"
+msgstr "OLA TTO"
+
+msgid "Scope"
+msgstr "Escopo"
+
+msgid "Default entities filter"
+msgstr "Filtro padrão de entidades"
+
+msgid "Leave empty to use active GLPI entities. Hold Ctrl to multi-select."
+msgstr "Deixe vazio para usar as entidades ativas do GLPI. Segure Ctrl para multi-seleção."
+
+msgid "Clear"
+msgstr "Limpar"
+
+msgid "No entities available"
+msgstr "Nenhuma entidade disponível"
+
+msgid "TV devices"
+msgstr "Dispositivos TV"
+
+msgid "No TV devices yet"
+msgstr "Nenhum dispositivo TV ainda"
+
+msgid "Access"
+msgstr "Acesso"
+
+msgid "Read"
+msgstr "Leitura"
+
+msgid "Update"
+msgstr "Atualização"
+
+msgid "Use the dashboard, filters, own TV pairing"
+msgstr "Usar o painel, filtros e pareamento da própria TV"
+
+msgid "This Configuration hub and wide ticket scope"
+msgstr "Este hub de Configuração e escopo amplo de chamados"
+
+msgid "Open GLPI Profiles"
+msgstr "Abrir Perfis GLPI"
+
+msgid "System"
+msgstr "Sistema"
+
+msgid "Missing"
+msgstr "Ausente"
+
+msgid "Purge orphan legacy keys for your user?"
+msgstr "Limpar chaves legadas órfãs do seu usuário?"
+
+msgid "Purge orphan config keys"
+msgstr "Limpar chaves de config órfãs"
+
+msgid "Orphan config keys purged"
+msgstr "Chaves de config órfãs removidas"
+
+msgid "Save failed"
+msgstr "Falha ao salvar"
+
+msgid "Open Configuration → Map"
+msgstr "Abrir Configuração → Mapa"
+
+msgid "Open chart"
+msgstr "Abrir gráfico"
+
+msgid "Indicators"
+msgstr "Indicadores"
+
+msgid "Shortcuts"
+msgstr "Atalhos"
+
+msgid "Trends"
+msgstr "Tendências"
+
+msgid "Spotlight"
+msgstr "Destaques"
+
+msgid "Distribution"
+msgstr "Distribuição"
+
+msgid "Operational mural"
+msgstr "Mural operacional"
+
+msgid "Waiting"
+msgstr "Aguardando"
+
+msgid "Live backlog"
+msgstr "Backlog ao vivo"
+
+msgid "Full catalog"
+msgstr "Catálogo completo"
+
+msgid "Exports & tables"
+msgstr "Exportações e tabelas"
+
+msgid "KPI strip"
+msgstr "Faixa de KPIs"
+
+msgid "By location"
+msgstr "Por localização"
+
+msgid "Wallboard"
+msgstr "Painel de parede"
+
+msgid "Copy log"
+msgstr "Copiar log"
+
+msgid "Copied"
+msgstr "Copiado"
+
+msgid "Customize mural"
+msgstr "Personalizar mural"
+
+msgid "Show, hide and reorder widgets for your Overview."
+msgstr "Mostre, oculte e reordene widgets da Visão geral."
+
+msgid "Sections"
+msgstr "Seções"
+
+msgid "Layout roles"
+msgstr "Papéis do layout"
+
+msgid "Hero chart"
+msgstr "Gráfico principal"
+
+msgid "Spotlight 1"
+msgstr "Destaque 1"
+
+msgid "Spotlight 2"
+msgstr "Destaque 2"
+
+msgid "Spotlight 3"
+msgstr "Destaque 3"
+
+msgid "Reset defaults"
+msgstr "Restaurar padrão"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Click a widget to add it to the canvas."
+msgstr "Clique em um widget para adicioná-lo ao canvas."
+
+msgid "Restore the Operation page to the factory default layout? Other unsaved edits will be lost."
+msgstr "Restaurar a aba Operação para o layout padrão de fábrica? Outras alterações não salvas serão perdidas."
+
+msgid "Save"
+msgstr "Salvar"
+
+msgid "No charts enabled. Use Customize mural to show widgets."
+msgstr "Nenhum gráfico ativo. Use Personalizar mural para exibir widgets."
+
+msgid "Open now"
+msgstr "Aberto agora"
+
+msgid "Queues"
+msgstr "Filas"
+
+msgid "Evolution"
+msgstr "Evolução"
+
+msgid "Opened in selected period"
+msgstr "Abertos no período selecionado"
+
+msgid "Flow in selected period"
+msgstr "Fluxo no período selecionado"
+
+msgid "Open backlog age"
+msgstr "Idade do backlog aberto"
+
+msgid "Soonest SLA due (open)"
+msgstr "SLA a vencer (abertos)"
+
+msgid "Move up"
+msgstr "Subir"
+
+msgid "Move down"
+msgstr "Descer"
+
+msgid "JPG"
+msgstr "JPG"
+
+msgid "PDF"
+msgstr "PDF"
+
+msgid "BI"
+msgstr "BI"
+
+msgid "Interactive canvas"
+msgstr "Canvas interativo"
+
+msgid "Edit"
+msgstr "Editar"
+
+msgid "Page period"
+msgstr "Período da página"
+
+msgid "Same as shell"
+msgstr "Igual à barra"
+
+msgid "New page"
+msgstr "Nova página"
+
+msgid "Widgets"
+msgstr "Widgets"
+
+msgid "Drag onto the canvas or click to add."
+msgstr "Arraste para o canvas ou clique para adicionar."
+
+msgid "Text"
+msgstr "Texto"
+
+msgid "Empty page. Switch to Edit and add widgets."
+msgstr "Página vazia. Mude para Editar e adicione widgets."
+
+msgid "Operation"
+msgstr "Operação"
+
+msgid "Page"
+msgstr "Página"
+
+msgid "Remove"
+msgstr "Remover"
+
+msgid "Rename page"
+msgstr "Renomear página"
+
+msgid "Apply name"
+msgstr "Aplicar nome"
+
+msgid "Tab name updated — click Save to keep it."
+msgstr "Nome da aba atualizado — clique em Salvar para gravar."
+
+msgid "Could not load page data. Try again."
+msgstr "Não foi possível carregar os dados da página. Tente de novo."
+
+msgid "IT park inventory"
+msgstr "Inventário do parque de TI"
+
+msgid "Could not load assets board."
+msgstr "Não foi possível carregar o painel de ativos."
+
+msgid "RAM threshold"
+msgstr "Limite de RAM"
+
+msgid "Up to 4 GB"
+msgstr "Até 4 GB"
+
+msgid "Up to 8 GB"
+msgstr "Até 8 GB"
+
+msgid "Up to 16 GB"
+msgstr "Até 16 GB"
+
+msgid "Park"
+msgstr "Parque"
+
+msgid "Park total"
+msgstr "Total do parque"
+
+msgid "All types"
+msgstr "Todos os tipos"
+
+msgid "In operation"
+msgstr "Em operação"
+
+msgid "Dynamic inventory"
+msgstr "Inventário dinâmico"
+
+msgid "%d manual"
+msgstr "%d manuais"
+
+msgid "With open tickets"
+msgstr "Com chamados abertos"
+
+msgid "Linked assets"
+msgstr "Ativos vinculados"
+
+msgid "Warranty ≤ 30 days"
+msgstr "Garantia ≤ 30 dias"
+
+msgid "%d within 90 days"
+msgstr "%d em até 90 dias"
+
+msgid "Stale inventory"
+msgstr "Inventário defasado"
+
+msgid "More than %d days"
+msgstr "Há mais de %d dias"
+
+msgid "Disks under 10% free"
+msgstr "Discos com menos de 10% livres"
+
+msgid "%d under 15%%"
+msgstr "%d abaixo de 15%%"
+
+msgid "Low RAM candidates"
+msgstr "Candidatos a ampliação de RAM"
+
+msgid "No agent"
+msgstr "Sem agente"
+
+msgid "%d stale agents"
+msgstr "%d agentes defasados"
+
+msgid "No location"
+msgstr "Sem localização"
+
+msgid "%d without user"
+msgstr "%d sem usuário"
+
+msgid "Licenses expiring"
+msgstr "Licenças a vencer"
+
+msgid "%d software titles"
+msgstr "%d softwares"
+
+msgid "Cartridges in stock"
+msgstr "Cartuchos em estoque"
+
+msgid "%d consumables"
+msgstr "%d consumíveis"
+
+msgid "%d dynamic · %d with tickets"
+msgstr "%d dinâmicos · %d com chamados"
+
+msgid "Park by type"
+msgstr "Parque por tipo"
+
+msgid "Computers by status"
+msgstr "Computadores por status"
+
+msgid "Computers by manufacturer"
+msgstr "Computadores por fabricante"
+
+msgid "Operating systems"
+msgstr "Sistemas operacionais"
+
+msgid "Disks almost full"
+msgstr "Discos quase cheios"
+
+msgid "Partition"
+msgstr "Partição"
+
+msgid "Free space"
+msgstr "Espaço livre"
+
+msgid "RAM"
+msgstr "RAM"
+
+msgid "Last inventory"
+msgstr "Último inventário"
+
+msgid "Warranty ending"
+msgstr "Garantia a vencer"
+
+msgid "Item"
+msgstr "Item"
+
+msgid "Expires"
+msgstr "Vence"
+
+msgid "License"
+msgstr "Licença"
+
+msgid "Software"
+msgstr "Software"
+
+msgid "Type"
+msgstr "Tipo"
+
+msgid "Computer"
+msgstr "Computador"
+
+msgid "Computers"
+msgstr "Computadores"
+
+msgid "Monitors"
+msgstr "Monitores"
+
+msgid "Network equipment"
+msgstr "Equipamentos de rede"
+
+msgid "Printers"
+msgstr "Impressoras"
+
+msgid "Phones"
+msgstr "Telefones"
+
+msgid "Peripherals"
+msgstr "Periféricos"
+
+msgid "None"
+msgstr "Nenhum"
+
+msgid "Unknown"
+msgstr "Desconhecido"
+
+msgid "Table missing"
+msgstr "Tabela ausente"
+
+msgid "Alerts"
+msgstr "Alertas"
+
+msgid "Back"
+msgstr "Voltar"
+
+msgid "Search"
+msgstr "Buscar"
+
+msgid "Search by name…"
+msgstr "Buscar por nome…"
+
+msgid "No results"
+msgstr "Sem resultados"
+
+msgid "Loading…"
+msgstr "Carregando…"
+
+msgid "Previous"
+msgstr "Anterior"
+
+msgid "Next"
+msgstr "Próxima"
+
+msgid "%d results"
+msgstr "%d resultados"
+
+msgid "Page %1$d of %2$d"
+msgstr "Página %1$d de %2$d"
+
+msgid "Breadcrumb"
+msgstr "Navegação"
+
+msgid "Asset"
+msgstr "Ativo"
+
+msgid "Open in GLPI"
+msgstr "Abrir no GLPI"
+
+msgid "Partitions"
+msgstr "Partições"
+
+msgid "Used"
+msgstr "Usado"
+
+msgid "Free"
+msgstr "Livre"
+
+msgid "Total"
+msgstr "Total"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Manufacturer"
+msgstr "Fabricante"
+
+msgid "Model"
+msgstr "Modelo"
+
+msgid "User"
+msgstr "Usuário"
+
+msgid "Yes"
+msgstr "Sim"
+
+msgid "No"
+msgstr "Não"
+
+msgid "Detail"
+msgstr "Detalhe"
+
+msgid "Licenses"
+msgstr "Licenças"
+
+msgid "Agent last contact"
+msgstr "Último contato do agente"
+
+msgid "Disk usage by partition"
+msgstr "Uso de disco por partição"
+
+msgid "Memory RAM"
+msgstr "Memória RAM"
+
+msgid "Days since last inventory"
+msgstr "Dias desde o último inventário"
+
+msgid "Inventory age"
+msgstr "Idade do inventário"
+
+msgid "Days"
+msgstr "Dias"
+
+msgid "Snapshot as of %s"
+msgstr "Snapshot em %s"
+
+msgid "Inventory snapshot"
+msgstr "Snapshot do inventário"
+
+msgid "Cartridge #%d"
+msgstr "Cartucho #%d"
+
+msgid "Show TV URL debug"
+msgstr "Mostrar debug da URL da TV"
+
+msgid "Path (relative to site):"
+msgstr "Caminho (relativo ao site):"
+
+msgid "Copy log"
+msgstr "Copiar log"
+
+msgid "Copied"
+msgstr "Copiado"
+
+msgid "Tip: open with ?tv_pair_debug=1 and copy this block."
+msgstr "Dica: abra com ?tv_pair_debug=1 e copie este bloco."
+
+msgid "Overall"
+msgstr "Geral"
+
+msgid "For me"
+msgstr "Para mim"
+
+msgid "Observer"
+msgstr "Observador"
+
+msgid "Opened by me"
+msgstr "Abertos por mim"
+
+msgid "Filter"
+msgstr "Filtrar"
+
+msgid "All"
+msgstr "Todos"
+
+msgid "Extra views"
+msgstr "Visões extras"
+
+msgid "Board view"
+msgstr "Visão do mural"
+
+msgid "My groups"
+msgstr "Meus grupos"
+
+msgid "Panel access"
+msgstr "Acesso ao Painel"
+
+msgid "Wide group vision"
+msgstr "Visão ampla de grupos"
+
+msgid "Enter the app (Overview and TV mode)."
+msgstr "Entrar no app (Visão geral e Modo TV)."
+
+msgid "See all groups in ticket filters and TV (not only your groups)."
+msgstr "Ver todos os grupos nos filtros de chamados e no Modo TV (não só os seus)."
+
+msgid "Access the Tickets module."
+msgstr "Acesso ao módulo Chamados."
+
+msgid "Access Charts, Reports and BI."
+msgstr "Acesso a Gráficos, Relatórios e BI."
+
+msgid "Edit layouts"
+msgstr "Editar layouts"
+
+msgid "Save BI and Overview mural layouts."
+msgstr "Salvar layouts do BI e do mural da Visão geral."
+
+msgid "Access Map and Assets."
+msgstr "Acesso a Mapa e Ativos."
+
+msgid "Edit map"
+msgstr "Editar mapa"
+
+msgid "Edit map coordinates."
+msgstr "Editar coordenadas do mapa."
+
+msgid "How rights work"
+msgstr "Como funcionam os direitos"
+
+msgid "Configuration / Admin is not this matrix — only Super-Admin (or GLPI config UPDATE)."
+msgstr "Configuração/Admin não é esta matriz — só Super-Admin (ou Atualização de configuração do GLPI)."
+
+msgid "Wide group vision is a separate right; without it the user only sees their groups."
+msgstr "Visão ampla de grupos é um direito separado; sem ele o usuário vê só os seus grupos."
+
+msgid "Analysis/Resources Update means edit layouts / edit map — not see all tickets."
+msgstr "Atualizar em Análise/Recursos significa editar layouts / editar mapa — não ver todos os chamados."
+
+msgid "File"
+msgstr "Arquivo"
+
+msgid "URL"
+msgstr "URL"
+
+msgid "Custom logo (expanded)"
+msgstr "Logo personalizada (expandida)"
+
+msgid "Custom logo (collapsed)"
+msgstr "Logo personalizada (recolhida)"
+
+msgid "Leave empty to use active GLPI entities."
+msgstr "Deixe em branco para usar as entidades ativas do GLPI."
+
+msgid "Toggle URL/File per logo. Uploads accept SVG/PNG/JPG/WEBP up to 1 MB. Leave empty to use the Inovare files shipped with the plugin."
+msgstr "Alterne URL/Arquivo para cada logo. Uploads aceitam SVG/PNG/JPG/WEBP até 1 MB. Deixe em branco para usar os arquivos Inovare que acompanham o plugin."
+
+msgid "Choose a group in the filter bar above, or pick one here."
+msgstr "Escolha um grupo na barra de filtros acima, ou selecione um aqui."
+
+msgid "Map coordinates"
+msgstr "Coordenadas do mapa"
+
+msgid "Period"
+msgstr "Período"
+
+msgid "Upload failed"
+msgstr "Falha no upload"
+
+msgid "File too large (max 1 MB)"
+msgstr "Arquivo muito grande (máx. 1 MB)"
+
+msgid "Unsupported file type"
+msgstr "Tipo de arquivo não suportado"
+
+msgid "Widen config value column"
+msgstr "Ampliar coluna de valor da configuração"
+
+msgid "Overview failed to load"
+msgstr "Falha ao carregar a Visão geral"
+
+msgid "Export PDF"
+msgstr "Exportar PDF"
+
+msgid "Generated on"
+msgstr "Gerado em"
+
+msgid "records"
+msgstr "registros"
+
+msgid "of"
+msgstr "de"
+
+msgid "PDF export is unavailable on this server."
+msgstr "A exportação em PDF não está disponível neste servidor."
+
+msgid "Ticket priority"
+msgstr "Prioridade do chamado"
+
+msgid "by"
+msgstr "por"
+
+msgid "Export"
+msgstr "Exportar"
+
+msgid "Logs & audit"
+msgstr "Logs e auditoria"
+
+msgid "Only Super-Admin can open Logs & audit."
+msgstr "Apenas o Super-Admin pode abrir Logs e auditoria."
+
+msgid "Retention updated."
+msgstr "Retenção atualizada."
+
+msgid "Painel de Bordo — logs & audit tables ready"
+msgstr "Painel de Bordo — tabelas de logs e auditoria prontas"
+
+msgid "Who is using Painel de Bordo, sensitive actions, and GLPI logins."
+msgstr "Quem está usando o Painel de Bordo, ações sensíveis e logins do GLPI."
+
+msgid "Active now"
+msgstr "Ativos agora"
+
+msgid "No active users in the last 15 minutes."
+msgstr "Nenhum usuário ativo nos últimos 15 minutos."
+
+msgid "just now"
+msgstr "agora mesmo"
+
+msgid "%d min ago"
+msgstr "há %d min"
+
+msgid "Log retention"
+msgstr "Retenção de logs"
+
+msgid "Keep access logs for"
+msgstr "Manter logs de acesso por"
+
+msgid "Inherit GLPI (no auto-purge)"
+msgstr "Herdar do GLPI (sem purga automática)"
+
+msgid "%d days"
+msgstr "%d dias"
+
+msgid "Default: 30 days. “Inherit GLPI” keeps entries indefinitely (managed by GLPI housekeeping); any other value auto-purges older entries."
+msgstr "Padrão: 30 dias. “Herdar do GLPI” mantém os registros indefinidamente (gerenciado pela limpeza do GLPI); qualquer outro valor purga automaticamente os mais antigos."
+
+msgid "Painel de Bordo access"
+msgstr "Acesso ao Painel de Bordo"
+
+msgid "Action"
+msgstr "Ação"
+
+msgid "All actions"
+msgstr "Todas as ações"
+
+msgid "User or detail"
+msgstr "Usuário ou detalhe"
+
+msgid "From"
+msgstr "De"
+
+msgid "To"
+msgstr "Até"
+
+msgid "IP"
+msgstr "IP"
+
+msgid "GLPI logins"
+msgstr "Logins do GLPI"
+
+msgid "Opened the dashboard"
+msgstr "Abriu o painel"
+
+msgid "Changed configuration"
+msgstr "Alterou a configuração"
+
+msgid "Exported a report"
+msgstr "Exportou um relatório"
+
+msgid "Exported a chart"
+msgstr "Exportou um gráfico"
+
+msgid "Paired a TV device"
+msgstr "Pareou um dispositivo de TV"
+
+msgid "Revoked a TV device"
+msgstr "Revogou um dispositivo de TV"
+
+msgid "Access denied"
+msgstr "Acesso negado"
+
+msgid "Exported the audit log"
+msgstr "Exportou o log de auditoria"
+
+msgid "All users"
+msgstr "Todos os usuários"
+
+msgid "All period"
+msgstr "Todo o período"
+
+msgid "%1$s–%2$s of %3$s entries"
+msgstr "%1$s–%2$s de %3$s registros"
+
+msgid "Purge Painel de Bordo audit logs past retention"
+msgstr "Purgar logs de auditoria do Painel de Bordo além da retenção"
+
+msgid "Painel de Bordo — audit cron not registered: %s"
+msgstr "Painel de Bordo — cron de auditoria não registrado: %s"

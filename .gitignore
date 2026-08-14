@@ -1,0 +1,24 @@
+# Release artifacts (built by the packaging step, not source)
+*.zip
+staging_pkg/
+
+# Windows shell junk
+Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# Editors / tooling
+.vscode/
+.idea/
+*.swp
+*~
+.claude/
+
+# Temporary probes and scratch used during development
+_tmp_probe/
+*.tmp
+*.bak
+
+# Logs
+*.log
+files/_log/

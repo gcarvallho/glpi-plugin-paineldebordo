@@ -1,0 +1,20 @@
+# Normalize line endings in the repository to LF. The plugin is developed on
+# Windows but runs on Linux (GLPI server), so storing LF avoids shipping CRLF
+# into PHP/shell files. Windows working copies still check out as CRLF.
+* text=auto eol=lf
+
+# Windows-only tooling keeps CRLF locally
+*.ps1 text eol=crlf
+
+# Binary assets — never touch
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.zip binary
+*.mo binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary

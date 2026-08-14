@@ -1,0 +1,41 @@
+# Painel de Bordo — English (United Kingdom)
+msgid ""
+msgstr ""
+"Project-Id-Version: paineldebordo 2.4.0\n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Overview"
+msgstr "Overview"
+
+msgid "TV mode"
+msgstr "TV mode"
+
+msgid "Open tickets"
+msgstr "Open tickets"
+
+msgid "Side menu"
+msgstr "Side menu"
+
+msgid "Top menu"
+msgstr "Top menu"
+
+msgid "User menu"
+msgstr "User menu"
+
+msgid "You"
+msgstr "You"
+
+msgid "Preferences"
+msgstr "Preferences"
+
+msgid "Dark mode"
+msgstr "Dark mode"
+
+msgid "User: %s"
+msgstr "User: %s"
+
+msgid "Back to GLPI"
+msgstr "Back to GLPI"
