@@ -9,6 +9,37 @@
 
 O GLPI é excelente para registrar chamados, mas responder **“como estamos agora?”** costuma exigir muitos cliques. O Painel de Bordo entrega essa resposta em uma tela: indicadores em tempo real, filas por status, gráficos, relatórios exportáveis e um mural que pode ficar exposto na parede da equipe.
 
+## Capturas
+
+> Telas de um ambiente real. Nomes de pessoas, o QR Code e o endereço do servidor foram borrados por privacidade.
+
+### Visão geral
+Indicadores de fluxo e de snapshot, filas por status e atalhos — o mural é personalizável por usuário.
+
+![Visão geral do Painel de Bordo, com indicadores, filas e atalhos](docs/img/visao-geral.jpg)
+
+Tendências e destaques logo abaixo, com exportação individual por gráfico:
+
+![Gráfico de evolução de chamados abertos no período](docs/img/visao-geral-tendencias.jpg)
+
+![Painel de gráficos: por prioridade, grupo, técnico, categoria, entidade, SLA e tipo](docs/img/visao-geral-graficos.jpg)
+
+### Modo TV
+Wallboard para telão, com atualização automática, colunas configuráveis e avisos de novos chamados. Funciona em tema claro e escuro:
+
+![Modo TV em tema claro, com as filas Novo, Em atendimento, Planejado e Pendente](docs/img/modo-tv.jpg)
+
+![Modo TV em tema escuro](docs/img/modo-tv-escuro.jpg)
+
+O pareamento é no estilo dos apps de streaming: a TV exibe um código, alguém autoriza pelo celular ou PC, e o telão opera sem manter uma sessão logada exposta.
+
+![Tela de pareamento do Modo TV, com código de autorização e QR Code](docs/img/modo-tv-pareamento.jpg)
+
+### BI Studio
+Canvas de widgets arrastáveis (KPI, gráfico e texto), com abas e período por página:
+
+![BI Studio em modo de edição, com a paleta de widgets à esquerda](docs/img/bi-studio.jpg)
+
 ---
 
 ## Recursos
