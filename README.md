@@ -1,249 +1,170 @@
-﻿# Painel de Bordo 2.34.0
-
-App único (Tabler-like + DS Inovare). Overview NOC + studio **BI** + **NOC de Ativos** (inventário).
-
-## Pasta
-`plugins/paineldebordo`
-
-## Versionamento
-Semver `MAJOR.MINOR.PATCH` — ver [`docs/VERSIONING.md`](docs/VERSIONING.md).
-
-- **PATCH** (`2.32.x`): correção e polimento
-- **MINOR** (`2.32.0`): feature nova
-- **Regra de ouro:** nunca retirar o que funciona, salvo pedido explícito; UI em PT-BR; ícone+texto
-
-## Novidades 2.34.0
-- **Auditoria de verdade**: agora registra **tentativa de acesso negado** (quem tentou abrir Configuração/Logs ou um módulo sem permissão) — destacada em vermelho na lista
-- **Mudança de configuração diz o que mudou**: em vez de só "branding", grava os campos alterados com valor antes → depois
-- **Exportar o log** em CSV e PDF (respeitando os filtros da tela); a própria exportação fica registrada
-- Tabela com **paginação** (100 por página), **filtro por usuário**, e colunas novas de **dispositivo** (navegador/SO) e **entidade**
-- **Purga por cron do GLPI** (Configurar → Ações automáticas), além da purga em tempo de uso — assim a retenção vale mesmo com o painel parado; presenças antigas também são limpas
+# Painel de Bordo
 
-## Novidades 2.33.1
-- Correção definitiva dos warnings de `includes.php` no log: o guard de bootstrap do GLPI 11 agora está em **todos** os 32 pontos de entrada (`shell.php`, todos os `ajax/`, tickets, métricas, relatórios) — na 2.32.16 só os arquivos do Modo TV tinham
-- Logs: tabelas passam a usar `TIMESTAMP` (o GLPI 11 desencoraja `DATETIME`); quem instalou a 2.33.0 é migrado automaticamente
-- Logs: "Logins do GLPI" mostrava `#0` sem foto — o GLPI não guarda o id do usuário nesses eventos; agora o usuário é resolvido pelo login na mensagem (com avatar), e o que não dá pra resolver aparece como "—"
-- Retenção de logs: padrão passa a ser **30 dias** (antes era "herdar GLPI")
-- Design system: **botão só-ícone agora exige tooltip** (regra de ouro). O menu Exportar dos gráficos ficou só com ícone + tooltip
+**Central operacional para o GLPI 11** — painéis NOC, relatórios, BI e um modo TV pronto para telão, tudo em uma única aplicação, sem iframes.
 
-## Novidades 2.33.0
-- **Logs e auditoria** (novo, no menu Admin, só Super-Admin): mostra quem está usando o Painel de Bordo (ativos agora, com foto), a trilha de ações sensíveis (abrir o painel, alterar configuração, exportar relatório/gráfico, parear/revogar TV) e o histórico de logins do GLPI — tudo com avatar do usuário. Retenção herda a política do GLPI por padrão, com override opcional em dias (purga automática)
-- Correção: exportar gráfico como **JPG** saía com fundo preto; agora sai sempre com fundo branco (a exportação força fundo opaco e cores claras, independente do tema da tela)
+[![Versão](https://img.shields.io/badge/vers%C3%A3o-2.34.0-E73E11)](changelog.txt)
+[![GLPI](https://img.shields.io/badge/GLPI-11.0%2B-09141F)](https://glpi-project.org/)
+[![PHP](https://img.shields.io/badge/PHP-8.1%2B-777BB4)](https://www.php.net/)
+[![Licença](https://img.shields.io/badge/licen%C3%A7a-GPLv2%2B-blue)](COPYING.txt)
 
-## Novidades 2.32.16
-- Correção definitiva do Modo TV em produção: `tv_board.php`/`tv_events.php` (e demais endpoints públicos) não geram mais o warning `include(/var/inc/includes.php)` no log. No GLPI 11 o núcleo já está carregado antes do arquivo rodar, então o bootstrap clássico é pulado em vez de calcular o caminho por `dirname` (que falhava em instalações Docker/volume)
+O GLPI é excelente para registrar chamados, mas responder **“como estamos agora?”** costuma exigir muitos cliques. O Painel de Bordo entrega essa resposta em uma tela: indicadores em tempo real, filas por status, gráficos, relatórios exportáveis e um mural que pode ficar exposto na parede da equipe.
 
-## Novidades 2.32.15
-- Tooltip de prioridade não repete mais o valor; tooltips do menu principal removidos onde o rótulo já está visível; auditoria de `title=` nativo residual em todo o plugin
-- Exportar PDF (relatórios): botão com aparência real de botão; mostra quem gerou e quando; abre em nova aba pra pré-visualizar antes de baixar
-- Gráficos: botões JPG/PDF agrupados num menu "Exportar"; PDF também pré-visualiza antes de baixar; corrige título ausente e fonte incorreta na exportação
+---
 
-## Novidades 2.32.14
-- Tooltip (`ho-tip`): corrige balão sendo cortado pela borda das colunas do Modo TV — agora posicionado em JS (`position: fixed`, calculado via `getBoundingClientRect()`), sempre acima de tudo, em todo o plugin
-- Relatórios: novo botão **Exportar PDF** ao lado do CSV — cabeçalho com marca, período e data de geração, tabela com bordas, rodapé paginado; reaproveita o TCPDF do próprio GLPI (sem biblioteca nova vendorizada)
+## Recursos
 
-## Novidades 2.32.13
-- TV: prévia da descrição preserva títulos de seção (negrito) e quebras de linha em vez de virar texto corrido — importante pra descrições de formulário (pergunta/resposta)
+### Visão geral (NOC)
+Mural operacional com KPIs de fluxo e de snapshot, filas por status e gráficos. Cada usuário personaliza o próprio mural — escolhe quais blocos aparecem, reordena e define o gráfico de destaque.
 
-## Novidades 2.32.12
-- TV: corrige tamanho do ícone da categoria no card, que renderizava maior que os demais ícones da linha de datas mesmo com a fonte igual
+### Chamados
+Listas filtráveis e ordenáveis por recorte: **abertos**, **para mim**, **abertos por mim**, **onde sou observador** (direto ou via grupo), **por grupo** e **por entidade** — sempre respeitando as permissões do GLPI.
 
-## Novidades 2.32.11
-- TV: corrige barra de rolagem horizontal indevida nas colunas; ícone no link "+N mais"; coluna extra **Observador** no quadro (Exibição → Visões extras); categoria movida pra linha própria abaixo do título
-- Prévia: mostra a descrição completa (sem corte, com quebras de linha preservadas), modal um pouco maior com rolagem
-- Tooltips: corrige balão cortado (id, prioridade, técnico, solicitante, grupo, observadores, categoria, título) causado pelo próprio truncamento de texto
+### Gráficos e relatórios
+Catálogo de gráficos com tela cheia e exportação em JPG/PDF, e cerca de 50 relatórios (SLA, custos, tarefas, sínteses, categorias, localidades…) com exportação em **CSV** e **PDF**. Todo PDF abre para pré-visualização antes de salvar.
 
-## Novidades 2.32.10
-- Correção: `tv_board.php`/`tv_events.php`/`tv_unpair.php`/`tv.php` paravam de carregar em produção (rota sem sessão do GLPI 11 não ajustava o diretório antes do `include`)
-- Chamados: nova visão **Observador** (onde eu — ou meu grupo — sou observador)
-- TV: card com **categoria** do chamado (junto das datas); botão **Prévia** (modal com a descrição); **"+N mais"** vira link pra lista filtrada (inclusive Validação/Aprovação)
-- Tooltips estilizados (`ho-tip`) em todo o plugin, com rótulo + valor em vez do balão nativo do navegador repetindo o texto
+### BI Studio
+Canvas de widgets arrastáveis (KPI, gráfico e texto) com abas, período por página, modos visualizar/editar e tela cheia. Cada usuário monta seus próprios painéis.
 
-## Novidades 2.32.9
-- Relatórios e Gráficos: grade de tiles trocada por lista compacta ícone + nome completo (sem cortar); os 48 relatórios que caíam no ícone genérico agora têm ícone real; ícones de técnico/solicitante unificados com o padrão do Modo TV
+### NOC de Ativos
+Panorama do inventário: computadores, monitores, equipamentos de rede, impressoras, telefones e periféricos — cruzando discos, memória, agentes, sistemas operacionais, licenças e informações financeiras.
 
-## Novidades 2.32.8
-- TV: card com técnico e solicitante em selos irmãos de mesmo peso lado a lado (quebram em telas estreitas); grupo volta a linha simples; ícone de headset pro técnico, pessoa pro solicitante, olho pros observadores; ícones unificados entre o card e a lista "Campos do card" nas preferências
-- Configuração → Personalização: cores próprias pro modo escuro (primária/fundo/superfície/texto), além das já existentes pro claro
-- Pareamento de TV: reabrir a tela no mesmo aparelho reaproveita o código pendente (renova o prazo) em vez de duplicar; códigos pendentes expirados somem sozinhos da lista de dispositivos
+### Modo TV
+Wallboard para telão, com atualização automática, avisos sonoros e visuais de novos chamados, e colunas configuráveis (incluindo *Aguardando validação* e *Solução aprovada*). O pareamento da TV é no estilo dos apps de streaming: a tela mostra um código, alguém autoriza pelo celular ou PC, e o telão passa a operar **sem manter uma sessão logada exposta**.
 
-## Novidades 2.32.7
-- TV: card reorganizado — selo único de grupo+técnico (posse do chamado) em destaque; solicitante vira linha simples abaixo; rodapé com cor por nível de prioridade (Muito baixa a Major)
+### Personalização
+Cores, logotipo, favicon e nome do produto configuráveis — com paletas independentes para tema claro e escuro.
 
-## Novidades 2.32.6
-- AJAX: 7 endpoints (overview/bi/assets) voltam a responder JSON `forbidden` quando falta o direito base do plugin, em vez de página HTML do core
-- Ícone + rótulo: KPIs de listas de chamados, botões do hub de Configuração, exportar JPG/PDF, paginação de Ativos e modais (BI/Config) que estavam só texto
-- i18n: completa `pt_BR.po` (arquivo/URL, logos, ajuda de escopo/upload, upload de marca, "Período", instalação, Visão geral)
-- Hardening: remove do pacote arquivos legados órfãos com Bootstrap 2/Font Awesome/jQuery local/shim IE não roteados (movidos para `_legacy_ref/`)
+### Logs e auditoria
+Quem está usando o painel agora (com foto), trilha de ações sensíveis (mudança de configuração com o antes/depois, exportações, pareamento de TV e **tentativas de acesso negado**) e o histórico de logins do próprio GLPI. Exportável em CSV/PDF, com retenção configurável e purga automática.
 
-## Novidades 2.32.5
-- TV: ícones de grupo/técnico/observador; card folgado com 1–3 colunas; observadores não somem no modo denso; toasts no **inferior direito**
+---
 
-## Novidades 2.32.4
-- Listas de chamados: **Todos** no Status inclui Solucionado/Fechado; KPI **Abertos** continua só abertos
+## Requisitos
 
-## Novidades 2.32.3
-- TV: KPIs com ícone + rótulos curtos; **Aprovado**; idade/observadores com ícone; cards densos com ≥6 colunas
+| Item | Versão |
+|------|--------|
+| GLPI | 11.0 ou superior |
+| PHP | 8.1 ou superior |
+| Extensões PHP | `json` e (`mysqli` ou `pdo_mysql`) |
+| Banco | MySQL 8+ / MariaDB 10.4+ |
 
-## Novidades 2.32.2
-- TV: título da coluna **Em atendimento** (sem “(atribuído)”); cabeçalhos em 1 linha com altura uniforme
+## Instalação
 
-## Novidades 2.32.1
-- Fix: Desabilitar o plugin em Config → Plugins não deixa a página rodando infinitamente (ACL pesada saiu do `plugin_init`)
+1. Baixe o `.zip` da versão desejada em **[Releases](../../releases)** (ou empacote a partir do código-fonte — veja [Empacotamento](#empacotamento)).
+2. Descompacte dentro da pasta de plugins do GLPI, mantendo o nome da pasta como `paineldebordo`:
+   ```
+   glpi/marketplace/paineldebordo     (ou glpi/plugins/paineldebordo)
+   ```
+3. No GLPI, acesse **Configurar → Plugins**, e clique em **Instalar** e depois em **Ativar**.
+4. Libere o acesso aos perfis em **Administração → Perfis → aba Painel de Bordo**.
 
-## Novidades 2.32.0
-- ACL: direito **Visão ampla de grupos** (UPDATE master não libera mais todos os grupos — breaking)
-- Aba Perfis com labels/ajuda honestos; entidade única travada no filtro
-- TV: **Visão do mural** (filtra Novo/Atribuído/…) + **Visões extras** mantidas
-- Docs PERMISSIONS/QA/ARCHITECTURE alinhados
+O menu aparece no topo do GLPI como **Inovare Hub**.
 
-## Novidades 2.31.0
-- TV: **Solução aprovada** (solução aceita pelo requerente, status ACCEPTED); KPIs hoje/semana/mês = volume **criado** no período
-- Períodos do shell: **Mês** (calendário) e **Geral**; migração de `30d` → `month`
-- Chamados: **Abertos por mim**; ordenar/filtrar listas; TV pref da mesma visão
-- UX: ícones recolher/expandir menu; paleta ampliada de gráficos; gráficos do detalhe de ativo no NOC corrigidos
+## Permissões
 
-## Novidades 2.30.0
-- TV: faixa KPI visível no dark; coluna “Em atendimento (atribuído)”; KPI “No mês”; prefs por grupo / para mim / por entidade (ACL)
-- Chamados: nav **Para mim**; links para o chamado no GLPI; KPI **Abertos**; período **Hoje**
-- Filtros: entidade/grupo padrão do usuário na 1ª visita; tipagem de cards NOC Ativos
-- ACL: opções de grupo sem vazamento `is_recursive`; Read/Update do perfil em PT-BR; avatar no menu superior
+O plugin usa direitos próprios do GLPI, por módulo:
 
-## Novidades 2.29.8
-- Install: rebuild da tabela `config` (contorna MySQL 1170); log em Administração → Logs
+| Direito | Dá acesso a |
+|---------|-------------|
+| `plugin_paineldebordo` (mestre) | Aplicação, Visão geral, Modo TV e pareamento |
+| `plugin_paineldebordo_tickets` | Listas de chamados |
+| `plugin_paineldebordo_analysis` | Gráficos, Relatórios e BI |
+| `plugin_paineldebordo_resources` | Ativos e Mapa |
+| `plugin_paineldebordo_groups` | Visão ampla de grupos (além dos seus) |
 
-## Novidades 2.29.7
-- Install: remove índices secundários antes de TEXT
+**Configuração** e **Logs e auditoria** são restritos a Super-Admin. Detalhes em [`docs/PERMISSIONS.md`](docs/PERMISSIONS.md).
 
-## Novidades 2.29.6
-- Install: alargar `config.value` para TEXT
+---
 
-## Novidades 2.29.5–2.29.0
-- Avatar menu / logo marketplace
+## Contribuindo
 
-## Novidades 2.28.7
-- TV: dicas CTRL+M / CTRL+Espaço a cada carga (3s)
+Contribuições são bem-vindas. O fluxo é o convencional:
 
-## Novidades 2.28.6
-- Cards com título cortado: hover mostra o nome completo (tooltip)
+1. Faça um *fork* e crie um branch a partir de `main` (`git checkout -b minha-melhoria`).
+2. Implemente seguindo as **regras de ouro** abaixo.
+3. Garanta que as duas suítes de teste passam.
+4. Abra um *Pull Request* descrevendo o problema resolvido e como testar.
 
-## Novidades 2.28.5
-- TV: scrollbar das colunas igual ao menu lateral
+### Regras de ouro
 
-## Novidades 2.28.4
-- Favicon: cor da Personalização passa a valer de verdade (sem SVG estático laranja concorrendo)
+Estas regras não são estilo pessoal — elas mantêm o plugin coerente e são verificadas por testes:
 
-## Novidades 2.28.3
-- Tema escuro: fonte **Source Sans 3** preservada (`--ho-font` no `:root`)
+1. **Correção não muda a versão MINOR.** Bugfix e polimento sobem o PATCH (`2.34.0` → `2.34.1`); funcionalidade nova sobe o MINOR (`2.34.0` → `2.35.0`). Ver [`docs/VERSIONING.md`](docs/VERSIONING.md).
+2. **Nunca remova o que está funcionando** para "simplificar" — só quando explicitamente solicitado.
+3. **Interface em português.** Os *msgids* no código podem ser em inglês, mas `locales/pt_BR.po` (e o `.mo` compilado) precisam cobrir tudo.
+4. **Nunca só texto** em ações, menus e preferências: sempre ícone + rótulo.
+5. **Botão só com ícone exige tooltip** (`class="ho-tip" data-tip="…"` + `aria-label`).
+6. **Um bump de versão só está completo** quando `setup.php`, `README.md`, `changelog.txt`, a documentação afetada e os testes de versão estão alinhados.
 
-## Novidades 2.28.2
-- GLPI **Configurar** (chave) → hub **Configuração** (`public/config.php`)
-- Nav **rail + superior** unificada: só clique (sem hover concorrente / dois menus abertos)
+O design system está documentado em [`docs/DESIGN.md`](docs/DESIGN.md) — leia antes de criar componentes; provavelmente já existe um que serve.
 
-## Novidades 2.28.1
-- Personalização: **Restaurar padrão** ao lado de Salvar
-- Créditos: **gcarvallho.dev** (WhatsApp) / **Inovare** (site) / Stevenes Donato
+### Rodando os testes
 
-## Novidades 2.28.0
-- TV: **modo escuro** consertado (branding não sobrescreve tokens)
-- TV abre em **modo claro**; botão sol/lua + atalho **CTRL+Espaço**
-- Toasts: **Som ativado** / **Modo escuro|claro ativado**
+```bash
+php tests/run_all.php
+```
 
-## Novidades 2.27.7
-- Pareamento TV: countdown usa `ttl_sec` (fim do “182 min” por fuso sem TZ)
-- Personalização: cor do **favicon** configurável
-- Instalação: feedback por etapa restaurado na UI de Plugins
+```bash
+powershell -ExecutionPolicy Bypass -File tests/run_smoke.ps1
+```
 
-## Novidades 2.27.6
-- Rail: flyout dos grupos volta a abrir no clique/hover (overflow + `is-open`)
+A primeira suíte cobre lint, testes unitários, ACL e assets; a segunda faz verificações estruturais (versões, i18n, rotas, regras do design system). **As duas precisam passar** antes de um PR. Mais detalhes em [`docs/TESTING.md`](docs/TESTING.md).
 
-## Novidades 2.27.5
-- Pareamento: countdown em **min + s**
-- Ícones: Visão geral = gráficos; Modo TV = TV (não engrenagem); Recursos = racks
-- Favicon SVG (DASHBOARD) nas cores Inovare
+### Traduções
 
-## Novidades 2.27.4
-- Menu **Modo TV**: **Parear TV** + **Abrir TV logado**
-- Pareamento: API `tv_pair_api.php` (evita 403 do `/ajax/` sem login)
+Edite `locales/pt_BR.po` e recompile o `.mo`:
 
-## Novidades 2.27.3
-- TV: som ativo por padrão (não inicia mudo)
-- Pareamento TV: create via GET + paths stateless (fim do 403 CSRF / `create_failed`)
-- Links/QR: ignora `url_base` em localhost quando o host real é público
+```bash
+powershell -ExecutionPolicy Bypass -File tests/build_mo.ps1
+```
 
-## Novidades 2.27.2
-- Corrige load do plugin: `migrateModuleRights` idempotente (MySQL 1062 derrubava o plugin → “Não instalado”)
+### Empacotamento
 
-## Novidades 2.27.1
-- QA adversarial: [`docs/QA_ADVERSARIAL.md`](docs/QA_ADVERSARIAL.md) (personas, páginas, AJAX, abuso, TV) + suite `tests/run_acl_tests.php`
+O `.zip` de distribuição deve conter a pasta `paineldebordo/` na raiz, **com caminhos usando barras normais** (`/`) — as ferramentas nativas do Windows gravam `\` e quebram a extração no Linux. Não inclua `_legacy_ref/`, `.git/` nem `Thumbs.db`.
 
-## Novidades 2.27.0
-- Permissões por módulo (Chamados / Análise / Recursos); menu **Admin** só Super-Admin — ver [`docs/PERMISSIONS.md`](docs/PERMISSIONS.md)
-- Modo TV: corrige mute ao desmarcar “Lembrar mudo”; **CTRL+M** + tip empilhável
+---
 
-## Novidades 2.26.0
-- BI: palette em acordeões **Chamados** / **Ativos** / Texto; widgets de Ativos (indicadores, gráficos e listas de alerta)
-- BI: modal DS ao sair da edição sem salvar (Ver / Cancelar / menu)
-- Polimento: scrollbar do menu lateral; confirms do Config no modal DS
+## Estrutura do projeto
 
-## Novidades 2.25.2
-- BI: nova aba não “apaga” Operação ao voltar; botão ✓ + toast ao renomear aba (ainda precisa **Salvar** para gravar)
+```
+paineldebordo/
+├── setup.php              # Registro do plugin, versão, firewall das rotas públicas
+├── hook.php               # Instalação/desinstalação (tabelas, cron, perfis)
+├── inc/
+│   ├── layout.inc.php     # Chrome do app: navegação, tema, avatares, tooltips
+│   ├── access.inc.php     # Direitos e regras de visibilidade
+│   ├── audit.inc.php      # Logs e auditoria
+│   ├── branding.inc.php   # Personalização visual
+│   ├── icons.inc.php      # Ícones SVG embutidos
+│   └── services/          # Regras de negócio (chamados, relatórios, BI, ativos…)
+├── public/
+│   ├── shell.php          # Roteador único da aplicação
+│   ├── tv.php             # Modo TV (página autônoma)
+│   ├── views/             # Telas
+│   ├── ajax/              # Endpoints JSON
+│   └── css/dashboard-tokens.css   # Design system
+├── locales/               # Traduções
+├── tests/                 # Suítes de teste
+├── docs/                  # Documentação técnica
+└── _legacy_ref/           # Museu do código legado (referência, não distribuído)
+```
 
-## Novidades 2.25.1
-- Parque: ícones na mesma linha dos Indicadores; link TV com `root_doc`; debug `?tv_pair_debug=1`
+## Documentação
 
-## Novidades 2.25.0
-- NOC de Ativos: clique no indicador → listagem paginada → detalhe com gráficos de disco/RAM (snapshot) + Abrir no GLPI
+| Documento | Conteúdo |
+|-----------|----------|
+| [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) | Como as peças se conectam |
+| [`docs/DESIGN.md`](docs/DESIGN.md) | Design system, componentes e princípios de UX |
+| [`docs/PERMISSIONS.md`](docs/PERMISSIONS.md) | Modelo de direitos e visibilidade |
+| [`docs/VERSIONING.md`](docs/VERSIONING.md) | Semver e regras de release |
+| [`docs/TESTING.md`](docs/TESTING.md) | Estratégia e execução dos testes |
 
-## Novidades 2.24.4
-- BI/AJAX: header XHR para CSRF não consumir o token (salvar de novo); draft após arrastar/redimensionar
+O histórico de mudanças de cada versão está em [`changelog.txt`](changelog.txt) (português e inglês).
 
-## Novidades 2.24.3
-- Menu superior: grupos fechados ao atualizar/mudar página (só abrem no clique); filtro Entidade em PT-BR
+## Licença
 
-## Novidades 2.24.2
-- BI Studio: Salvar + feedback, período sem reset, abas, títulos PT-BR, UI sem confirm nativo
+Distribuído sob a **GNU General Public License v2 ou posterior** — veja [`COPYING.txt`](COPYING.txt).
 
-## Novidades 2.24.1
-- Fix TV pair AJAX/URL, Open link i18n, branding CSS order + PRG, rail flyout
+## Créditos
 
-## Novidades 2.24.0
-- Personalização (cores, logos locais, textos) + menu lateral recolhível (rail)
-
-## Novidades 2.23.7
-- TV Pair: código|QR lado a lado; countdown + renovação; TTL 3/5/10 min; apelido; dispositivo/IP/fuso
-
-## Novidades 2.23.6
-- Config TV: copiar link de pareamento; Apagar registros; status em PT-BR; botões alinhados ao DS
-
-## Novidades 2.23.5
-- BI: novos widgets aparecem abaixo do conteúdo (não fora da tela); **Cancelar** e **Restaurar padrão** na barra de edição
-
-## Novidades 2.23.4
-- TV: QR para autorizar no celular (login GLPI); Sair revoga o dispositivo; token revogado não reentra via sessão
-
-## Novidades 2.23.3
-- BI: Salvar/Nova página/paleta só no modo Editar; adicionar widgets deixa de ser descartado; arrastar pelo cabeçalho
-
-## Novidades 2.23.2
-- Ativos: PT-BR completo; **parque** (não “frota”); tipos/tabelas sem cair no inglês do core
-
-## Novidades 2.23.1
-- Ativos: corrige SQL de agentes (JOIN) que derrubava a página; filtro de grupo inválido não gera mais erro de acesso; redirect legado absoluto
-
-## Novidades 2.23.0
-- **NOC de Ativos**: parque completo (computadores, monitores, rede, impressoras, telefones, periféricos)
-- Alertas de inventário: disco quase cheio, candidatos a ampliação de RAM, inventário/agente defasado, garantia e licenças a vencer
-- Gráficos: composição por tipo, status/fabricante/SO; AJAX `assets_board`
-
-## Novidades 2.22.1
-- Mapa: corrige tiles quebrados — CSS Leaflet no caminho certo (`map/css`), URL absoluta, `invalidateSize`
-
-## Novidades 2.22.0
-- BI: **Tela cheia** (kiosk como o Modo TV)
-
-## Novidades 2.21.2
-- BI: rascunho local ao editar
-
-## Novidades 2.21.0
-- **BI Studio** substitui Métricas
+Desenvolvido por [gcarvallho.dev](https://wa.me/5591985390491) e [Inovare](https://inovareempreendimentos.com.br), com Stevenes Donato.
