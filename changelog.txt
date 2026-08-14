@@ -1,3 +1,13 @@
+Versão 2.34.1:
+
+- Instalação: quando o plugin antigo ST-Dashboard ainda está registrado, o Painel de Bordo agora avisa na tela que os dados foram migrados e que ele deve ser DESATIVADO e ter a pasta apagada, nunca desinstalado (o uninstall dele faz DROP TABLE sem IF EXISTS nas tabelas já migradas, o que termina em erro no GLPI 11)
+- README: seção de migração do ST-Dashboard com a ordem segura (backup, desativar, instalar, conferir, apagar a pasta)
+
+Version 2.34.1:
+
+- Install: when the legacy ST-Dashboard plugin is still registered, Painel de Bordo now warns on screen that its data was migrated and that it must be DISABLED and its folder deleted, never uninstalled (its uninstall runs DROP TABLE without IF EXISTS on the already-migrated tables, which ends in an error on GLPI 11)
+- README: ST-Dashboard migration section documenting the safe order (backup, disable, install, verify, delete the folder)
+
 Versão 2.34.0:
 
 - Auditoria: registra tentativa de acesso negado (quem tentou abrir Configuração/Logs ou um módulo sem permissão), destacada em vermelho na lista

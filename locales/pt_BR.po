@@ -1950,3 +1950,6 @@ msgstr "Purgar logs de auditoria do Painel de Bordo além da retenção"
 
 msgid "Painel de Bordo — audit cron not registered: %s"
 msgstr "Painel de Bordo — cron de auditoria não registrado: %s"
+
+msgid "Painel de Bordo — ST-Dashboard detected: its data was migrated. Disable it and delete the dashboard folder. Do NOT use Uninstall on it: that would drop the migrated tables and end in error."
+msgstr "Painel de Bordo — ST-Dashboard detectado: os dados dele foram migrados. Desative-o e apague a pasta dashboard. NÃO use Desinstalar nele: isso removeria as tabelas migradas e terminaria com erro."

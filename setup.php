@@ -107,7 +107,7 @@ function plugin_version_paineldebordo()
 {
     return [
         'name'            => __('Painel de Bordo', 'paineldebordo'),
-        'version'         => '2.34.0',
+        'version'         => '2.34.1',
         'author'          => '<a href="https://wa.me/5591985390491" target="_blank" rel="noopener">gcarvallho.dev</a> / <a href="https://inovareempreendimentos.com.br" target="_blank" rel="noopener">Inovare</a> / Stevenes Donato',
         'license'         => 'GPLv2+',
         'homepage'        => 'https://inovareempreendimentos.com.br',

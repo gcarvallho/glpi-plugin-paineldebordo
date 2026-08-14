@@ -42,6 +42,28 @@ function plugin_paineldebordo_install()
             );
         }
 
+        // 1b) Warn while the old ST-Dashboard is still registered. Its uninstall
+        // runs DROP TABLE without IF EXISTS on the three tables we just renamed,
+        // so clicking "Uninstall" there now raises an exception on GLPI 11 (and,
+        // before migrating, would have destroyed the very data we carry over).
+        // The safe path is Disable + delete the folder — say so on screen, at the
+        // exact moment the admin is looking at the plugin list.
+        try {
+            if ($DB->TableExists('glpi_plugins')) {
+                $legacy = $DB->doQuery(
+                    "SELECT id FROM glpi_plugins WHERE directory = 'dashboard' LIMIT 1"
+                );
+                if ($legacy && $DB->numrows($legacy) > 0) {
+                    plugin_paineldebordo_install_log(
+                        __('Painel de Bordo — ST-Dashboard detected: its data was migrated. Disable it and delete the dashboard folder. Do NOT use Uninstall on it: that would drop the migrated tables and end in error.', 'paineldebordo'),
+                        defined('WARNING') ? WARNING : 1
+                    );
+                }
+            }
+        } catch (Throwable $e) {
+            // Detection is advisory only — never block the install over it.
+        }
+
         // 2) Migrate profile right name (idempotent)
         if ($DB->TableExists('glpi_profilerights')) {
             if (!plugin_paineldebordo_db_query_idempotent(

@@ -26,8 +26,8 @@ Assert-True (Test-Path "$root\public\shell.php") "shell.php exists"
 Assert-True (Test-Path "$root\locales\pt_BR.po") "pt_BR.po"
 
 $setup = Get-Content "$root\setup.php" -Raw
-Assert-True ($setup -match "2\.34\.0") "version 2.34.0"
-Assert-True ((Get-Content "$root\README.md" -Raw) -match "2\.34\.0") "README version 2.34.0"
+Assert-True ($setup -match "2\.34\.1") "version 2.34.1"
+Assert-True ((Get-Content "$root\README.md" -Raw) -match "2\.34\.1") "README version 2.34.1"
 Assert-True ($setup -notmatch "::createFirstAccess") "setup init sem createFirstAccess"
 Assert-True ($setup -notmatch "migrateModuleRights") "setup init sem migrateModuleRights"
 Assert-True ((Get-Content "$root\inc\profile.class.php" -Raw) -match "Must stay cheap") "initProfile barato (sem migrate)"
@@ -287,6 +287,12 @@ $cronSrc = Get-Content "$root\inc\audit.class.php" -Raw
 Assert-True ($cronSrc -match "function cronAuditpurge") "cron task method"
 Assert-True ($cronSrc -match "function cronInfo") "cron info method"
 Assert-True ((Get-Content "$root\hook.php" -Raw) -match "CronTask::register") "install registers audit cron"
+# Warn on screen while the old ST-Dashboard is still registered: its uninstall
+# does DROP TABLE without IF EXISTS on the tables we just migrated.
+$hookLegacy = Get-Content "$root\hook.php" -Raw
+Assert-True ($hookLegacy -match "directory = 'dashboard'") "install detects legacy ST-Dashboard"
+Assert-True ($hookLegacy -match "ST-Dashboard detected") "install warns about ST-Dashboard uninstall"
+Assert-True ((Get-Content "$root\locales\pt_BR.po" -Raw) -match "ST-Dashboard detectado") "ST-Dashboard warning translated"
 Assert-True ((Get-Content "$root\inc\config_post.inc.php" -Raw) -match "touched") "config change names changed fields"
 $logsView = Get-Content "$root\public\views\logs_hub.php" -Raw
 Assert-True ($logsView -match "flt_user") "logs page filters by user"

@@ -138,7 +138,7 @@ foreach ($files as $file) {
 $setup = file_get_contents($root . '/setup.php');
 assert_true(str_contains($setup, 'function plugin_init_paineldebordo'), 'plugin_init_paineldebordo exists');
 assert_true(str_contains($setup, 'function plugin_version_paineldebordo'), 'plugin_version_paineldebordo exists');
-assert_true(str_contains($setup, "'version'         => '2.34.0'"), 'version is 2.34.0');
+assert_true(str_contains($setup, "'version'         => '2.34.1'"), 'version is 2.34.1');
 assert_true(!str_contains($setup, '::createFirstAccess'), 'setup init does not createFirstAccess');
 assert_true(!str_contains($setup, 'migrateModuleRights'), 'setup init does not migrate all profiles');
 assert_true(str_contains($setup, "config_page']['paineldebordo'] = 'public/config.php'"), 'config_page opens Configuration');
@@ -271,7 +271,7 @@ assert_true(str_contains($tv, 'TOAST_TTL'), 'TV toast TTL configured');
 assert_true(str_contains($setup, '#^/ajax/tv_board\\.php#'), 'firewall includes tv_board NO_CHECK');
 assert_true(str_contains($setup, '#^/tv\\.php#'), 'firewall includes tv.php NO_CHECK');
 $readme = file_get_contents($root . '/README.md');
-assert_true(str_contains($readme, '2.34.0'), 'README mentions 2.34.0');
+assert_true(str_contains($readme, '2.34.1'), 'README mentions 2.34.1');
 assert_true(str_contains((string) file_get_contents($root . '/inc/install.inc.php'), 'function plugin_paineldebordo_trace'), 'install trace helper');
 assert_true(str_contains((string) file_get_contents($root . '/inc/install.inc.php'), "logInFile('paineldebordo'"), 'trace writes paineldebordo.log');
 assert_true(str_contains((string) file_get_contents($root . '/inc/install.inc.php'), 'function plugin_paineldebordo_widen_config_value_column'), 'widen config helper');

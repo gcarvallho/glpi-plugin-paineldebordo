@@ -2,7 +2,7 @@
 
 **Central operacional para o GLPI 11** — painéis NOC, relatórios, BI e um modo TV pronto para telão, tudo em uma única aplicação, sem iframes.
 
-[![Versão](https://img.shields.io/badge/vers%C3%A3o-2.34.0-E73E11)](changelog.txt)
+[![Versão](https://img.shields.io/badge/vers%C3%A3o-2.34.1-E73E11)](changelog.txt)
 [![GLPI](https://img.shields.io/badge/GLPI-11.0%2B-09141F)](https://glpi-project.org/)
 [![PHP](https://img.shields.io/badge/PHP-8.1%2B-777BB4)](https://www.php.net/)
 [![Licença](https://img.shields.io/badge/licen%C3%A7a-GPLv2%2B-blue)](COPYING.txt)
